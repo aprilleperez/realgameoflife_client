@@ -2,10 +2,13 @@
   "name": "realgameoflife-client",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001/",
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.0"
+    "react-scripts": "3.0.0",
+    "socket.io-client": "^2.2.0",
+    "socket.io-react": "^1.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -1,11 +1,13 @@
-import React from "react";
+import React from 'react';
+import io from "socket.io-client";
+const socket = io('localhost:3001/');
 
-const ChatField = props => {
-    return (
-      <div className="chatWindow">
-        Hello this is a chat window this works yayayayay
-      </div>
-    );
+class ChatField extends React.Component {
+
+
+  render(){
+    return (<div>hi</div>)
+  }
 }
 
 export default ChatField;
