@@ -1,30 +1,21 @@
 import React from 'react';
 import './App.css';
 import ChatField from '../src/components/ChatField/'
+import Button from '../src/components/Button'
 
-function App() {
-  return (
-    <ChatField />
-  );
+class App extends React.Component {
+
+  state = {}
+
+  render() {
+    return (
+      <div className="container">
+        <ChatField />
+        <Button text={"Launch!"} buttonType={"green"}/>
+      </div>
+    );
+  }
 }
 
+
 export default App;
-
-
-
-{/* <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div> */}

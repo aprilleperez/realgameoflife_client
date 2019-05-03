@@ -9,7 +9,7 @@ class ChatField extends React.Component {
 
 
   render(){
-    return (<div>hi there</div>)
+    return null;
   }
 }
 
