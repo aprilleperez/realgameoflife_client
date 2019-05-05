@@ -11,7 +11,7 @@ function PrimaryLayout (props) {
   }
 
   return (
-    <div className="primary-layout">
+    <div>
         <Switch>
           <Route path="/lobby" component={Lobby} />
 

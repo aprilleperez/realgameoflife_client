@@ -2,22 +2,28 @@ import React from "react";
 import Button from "../Button"
 import "./nav.css"
 
-const Nav = (props) => {
+class Nav extends React.Component {
 
-  const userOrLogin = () => {
-    if (props.loggedIn){
-      return props.userName;
-    }
-    return "login";
+  state = {
+    name: this.props.userName
   }
 
-  return (
-    <div className="nav-bar text-right">
-      <a href="/">
-        <Button text={userOrLogin()} buttonType="navlink" />
-      </a>
-    </div>
-  )
-}
+  static getDerivedStateFromProps(nextProps, prevState){
+    if(nextProps.userName!==prevState.name){
+      return{name: nextProps.userName}
+    }
+    else
+    return null;
+  }
 
+  render() {
+    return (
+      <div className="nav-bar text-right">
+        <a href="/">
+          <Button text={this.state.name} buttonType="navlink" />
+        </a>
+      </div>
+    )
+  }
+}
 export default Nav;

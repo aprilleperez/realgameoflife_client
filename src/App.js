@@ -13,7 +13,7 @@ class App extends Component {
   state = {
     gameState: "start",
     loggedIn: false,
-    userName: "undefined"
+    userName: "login"
   }
 
   render() {
