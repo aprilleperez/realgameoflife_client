@@ -1,3 +1,11 @@
 .nav-bar{
   background-color: rgb(145, 143, 143)
 }
+
+.title{
+  display: inline-block;
+  float: left;
+  color: white;
+  font-size: 30px;
+  margin-left: 5px
+}

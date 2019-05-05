@@ -1,6 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 import './App.css';
 import PrimaryLayout from '../src/components/PrimaryLayout'
 
@@ -14,8 +14,12 @@ class App extends Component {
     gameState: "start",
     loggedIn: false,
     userName: "login",
-    isHost: false,
-    gameCode: ""
+    isHost: true,
+    gameCode: "------"
+  }
+
+  updateGameCode = (code) => {
+    this.setState({gameCode: code}, () => console.log(this.state))
   }
 
   render() {
@@ -23,6 +27,7 @@ class App extends Component {
       <BrowserRouter>
         <PrimaryLayout
           state={this.state}
+          updateGameCode={this.updateGameCode}
         />
       </BrowserRouter>
     );

@@ -8,17 +8,20 @@ class Nav extends React.Component {
     name: this.props.userName
   }
 
-  static getDerivedStateFromProps(nextProps, prevState){
-    if(nextProps.userName!==prevState.name){
-      return{name: nextProps.userName}
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.userName !== prevState.name) {
+      return { name: nextProps.userName }
     }
     else
-    return null;
+      return null;
   }
 
   render() {
     return (
       <div className="nav-bar text-right">
+        <div className="title">
+          Game of Real Life
+      </div>
         <a href="/">
           <Button text={this.state.name} buttonType="navlink" />
         </a>

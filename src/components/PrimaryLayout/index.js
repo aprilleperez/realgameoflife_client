@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 import LandingPage from '../LandingPage'
 import Lobby from "../Lobby"
 
@@ -7,7 +7,7 @@ function PrimaryLayout (props) {
 
   // allows us to pass props (logged in status and username) into the landing page when using a Route. 
   const landingPage = () => {
-    return (<LandingPage state={props.state}/>)
+    return (<LandingPage state={props.state} updateGameCode={props.updateGameCode}/>)
   }
 
   const lobby = () => {
