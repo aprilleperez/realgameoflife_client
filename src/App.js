@@ -1,18 +1,26 @@
 import React from 'react';
+import { Component } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom'
 import './App.css';
-import ChatField from '../src/components/ChatField/'
-import Button from '../src/components/Button'
+import PrimaryLayout from '../src/components/PrimaryLayout'
 
-class App extends React.Component {
 
-  state = {}
+import io from "socket.io-client";
+const socket = io('localhost:3001/');
+
+class App extends Component {
+
+  state = {
+    gameState: "start",
+    loggedIn: false,
+    userName: "undefined"
+  }
 
   render() {
     return (
-      <div className="container">
-        <ChatField />
-        <Button text={"Launch!"} buttonType={"green"}/>
-      </div>
+      <BrowserRouter>
+        <PrimaryLayout loggedIn={this.state.loggedIn} userName={this.state.userName}/>
+      </BrowserRouter>
     );
   }
 }
