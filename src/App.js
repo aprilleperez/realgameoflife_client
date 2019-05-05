@@ -13,13 +13,17 @@ class App extends Component {
   state = {
     gameState: "start",
     loggedIn: false,
-    userName: "login"
+    userName: "login",
+    isHost: false,
+    gameCode: ""
   }
 
   render() {
     return (
       <BrowserRouter>
-        <PrimaryLayout loggedIn={this.state.loggedIn} userName={this.state.userName}/>
+        <PrimaryLayout
+          state={this.state}
+        />
       </BrowserRouter>
     );
   }

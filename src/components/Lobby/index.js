@@ -1,9 +1,13 @@
 import React from "react";
+import Nav from "../Nav"
 
-const Lobby = () => {
+const Lobby = (props) => {
 
-  return(
-    <div>Lobby</div>
+  return (
+    <div>
+      <Nav loggedIn={props.state.loggedIn} userName={props.state.userName} />
+
+      Lobby</div>
   )
 }
 

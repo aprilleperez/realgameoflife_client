@@ -5,17 +5,22 @@ import Lobby from "../Lobby"
 
 function PrimaryLayout (props) {
 
-  // allows us to pass props (logged in status and possibly username) into the landing page when using a Route. 
+  // allows us to pass props (logged in status and username) into the landing page when using a Route. 
   const landingPage = () => {
-    return (<LandingPage loggedIn={props.loggedIn} userName={props.userName}/>)
+    return (<LandingPage state={props.state}/>)
+  }
+
+  const lobby = () => {
+    return <Lobby state={props.state}/>
+
   }
 
   return (
     <div>
         <Switch>
-          <Route path="/lobby" component={Lobby} />
+          <Route path="/lobby" render={lobby} />
 
-          {/* Uses render to load the landing page via function to we can pass in props */}
+          {/* Uses render to load the landing page via function so we can pass in props */}
           <Route path="/" exact render={landingPage} />
 
           {/* Catch all, redirects to landing page */}
