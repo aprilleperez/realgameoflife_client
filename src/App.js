@@ -4,10 +4,6 @@ import { BrowserRouter } from 'react-router-dom'
 import './App.css';
 import PrimaryLayout from '../src/components/PrimaryLayout'
 
-
-import io from "socket.io-client";
-const socket = io('localhost:3001/');
-
 class App extends Component {
 
   state = {
@@ -15,11 +11,11 @@ class App extends Component {
     loggedIn: false,
     userName: "login",
     isHost: true,
-    gameCode: "------"
+    gameCode: ""
   }
 
   updateGameCode = (code) => {
-    this.setState({gameCode: code}, () => console.log(this.state))
+    this.setState({gameCode: code}, () => console.log(this.state));
   }
 
   render() {
