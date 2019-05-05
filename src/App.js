@@ -1,30 +1,38 @@
 import React from 'react';
+import { Component } from 'react';
+import { BrowserRouter } from 'react-router-dom'
 import './App.css';
-import ChatField from '../src/components/ChatField/'
+import PrimaryLayout from '../src/components/PrimaryLayout'
 
-function App() {
-  return (
-    <ChatField />
-  );
+
+import io from "socket.io-client";
+const socket = io('localhost:3001/');
+
+class App extends Component {
+
+  state = {
+    gameState: "start",
+    loggedIn: false,
+    userName: "login",
+    isHost: true,
+    gameCode: "------"
+  }
+
+  updateGameCode = (code) => {
+    this.setState({gameCode: code}, () => console.log(this.state))
+  }
+
+  render() {
+    return (
+      <BrowserRouter>
+        <PrimaryLayout
+          state={this.state}
+          updateGameCode={this.updateGameCode}
+        />
+      </BrowserRouter>
+    );
+  }
 }
 
+
 export default App;
-
-
-
-{/* <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div> */}
