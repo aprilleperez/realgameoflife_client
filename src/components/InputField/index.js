@@ -14,17 +14,12 @@ class InputField extends React.Component {
   }
 
   handleChange(event) {
-    this.setState({value: event.target.value}, this.props.updateGameCode(this.state.value)
+    this.setState({value: event.target.value}, this.props.updateGameCode(event.target.value)
     );
-
   }
 
   handleSubmit(event) {
-    // console.log("Game code entered: " + this.state.value);
-    // console.log("props:", this.props)
     event.preventDefault();
-
-    // window.location.replace("/lobby");
   }
 
   render() {
