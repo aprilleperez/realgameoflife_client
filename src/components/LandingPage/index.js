@@ -18,11 +18,9 @@ const LandingPage = (props) => {
         </div>
         <div className="row mt-5">
         <h1 className="ml-3 align-bottom">Enter Game Code:</h1>
-        <input type="text" className="code-box mx-2"></input>
-        <Link to="/lobby"><Button text="Join Game" buttonType="green" /></Link>
         
         </div>
-        <InputField updateGameCode={props.updateGameCode}/>
+        <InputField updateState={props.updateState}/>
       </div>
 
 

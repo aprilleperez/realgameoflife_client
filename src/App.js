@@ -3,6 +3,9 @@ import { Component } from 'react';
 import { BrowserRouter } from 'react-router-dom'
 import './App.css';
 import PrimaryLayout from '../src/components/PrimaryLayout'
+import io from "socket.io-client";
+
+let socket = io('localhost:3001/')
 
 class App extends Component {
 
@@ -10,12 +13,11 @@ class App extends Component {
     gameState: "start",
     loggedIn: false,
     userName: "login",
-    isHost: true,
     gameCode: ""
   }
 
-  updateGameCode = (code) => {
-    this.setState({gameCode: code}, () => console.log(this.state));
+  updateState = (vals) => {
+    this.setState(vals);
   }
 
   render() {
@@ -23,7 +25,8 @@ class App extends Component {
       <BrowserRouter>
         <PrimaryLayout
           state={this.state}
-          updateGameCode={this.updateGameCode}
+          updateState={this.updateState}
+          socket={socket}
         />
       </BrowserRouter>
     );
