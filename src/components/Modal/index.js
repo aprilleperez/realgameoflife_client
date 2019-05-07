@@ -51,6 +51,9 @@ class NewModal extends React.Component {
               <Button variant="secondary" onClick={this.handleClose}>
                 Close
               </Button>
+              <Button variant="primary" onClick={'href=signup'}>
+              Sign Up
+              </Button>
               <Button variant="primary" onClick={this.handleClose}>
                 Submit
               </Button>
