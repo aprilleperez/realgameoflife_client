@@ -25,6 +25,8 @@ const LandingPage = (props) => {
         <InputField updateGameCode={props.updateGameCode}/>
       </div>
 
+      
+
 
     </div>
   )

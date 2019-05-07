@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "../Button"
+import Modal from "../Modal"
 import "./nav.css"
 
 class Nav extends React.Component {
@@ -21,10 +22,8 @@ class Nav extends React.Component {
       <div className="nav-bar text-right">
         <div className="title">
           Game of Real Life
-      </div>
-        <a href="/">
-          <Button text={this.state.name} buttonType="navlink" />
-        </a>
+        </div>
+        <Modal/>
       </div>
     )
   }
