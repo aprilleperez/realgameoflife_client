@@ -16,28 +16,28 @@ class PrimaryLayout extends React.Component {
     }
 
     // allows us to pass props (logged in status and username) into the landing page when using a Route. 
-    const LandingPageComponent = () => {
+    const landingPage = () => {
       return (<LandingPage state={this.props.state} updateState={this.props.updateState} setGame={setGame} />)
     }
 
-    const LobbyComponent = () => {
-      return <Lobby state={this.props.state} updateState={this.props.updateState} socket={this.props.socket}/>
+    const lobby = () => {
+      return <Lobby state={this.props.state} updateState={this.props.updateState} socket={this.props.socket} updateState={this.props.updateState} />
 
     }
 
-    const GameComponent = () => {
+    const game = () => {
       return <Game state={this.props.state} socket={this.props.socket} />
     }
 
     return (
       <div>
         <Switch>
-          <Route path="/game" render={GameComponent} />
+          <Route path="/game" render={game} />
 
-          <Route path="/lobby" render={LobbyComponent} />
+          <Route path="/lobby" render={lobby} />
 
           {/* Uses render to load the landing page via function so we can pass in props */}
-          <Route path="/" exact render={LandingPageComponent} />
+          <Route path="/" exact render={landingPage} />
 
           {/* Catch all, redirects to landing page */}
           <Redirect to="/" />
