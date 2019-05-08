@@ -6,9 +6,6 @@ import { Container } from "react-bootstrap"
 import "./lobby.css"
 import axios from 'axios';
 
-let players = 0;
-let isConnected = false;
-
 class Lobby extends React.Component {
 
   state = {

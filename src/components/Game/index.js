@@ -1,5 +1,5 @@
 import React from 'react'
-import { Redirect } from "react-router-dom"
+// import { Redirect } from "react-router-dom"
 
 class Game extends React.Component {
 
@@ -22,7 +22,7 @@ class Game extends React.Component {
 
     if (!this.props.state.host && !this.state.gameRunning){
       // if not the host, automatically start game
-      
+
       this.setState({gameRunning: true})
     }
 
@@ -34,8 +34,6 @@ class Game extends React.Component {
 
     if (this.state.gameRunning && this.props.state.gameObj) {
       let gameObj = this.props.state.gameObj;
-
-      console.log(gameObj)
 
       if (this.props.state.host) {
         return (
