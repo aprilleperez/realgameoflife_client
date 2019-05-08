@@ -13,10 +13,13 @@ class App extends Component {
     gameState: "start",
     loggedIn: false,
     userName: "login",
-    gameCode: ""
+    gameCode: "",
+    gameObj: undefined,
+    host: false
   }
 
   updateState = (vals) => {
+    // console.log(`updating top state`)
     this.setState(vals);
   }
 

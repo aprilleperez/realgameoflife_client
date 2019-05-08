@@ -22,10 +22,6 @@ const LandingPage = (props) => {
         </div>
         <InputField updateState={props.updateState}/>
       </div>
-
-      
-
-
     </div>
   )
 }
