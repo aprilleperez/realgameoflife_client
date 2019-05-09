@@ -1,0 +1,16 @@
+.answer {
+  height: 50px;
+  padding: 10px;
+  background-color: rgb(0, 105, 119);
+  color: white;
+  transition: 300ms;
+  margin: 25px;
+}
+
+.answer:active {
+  background-color: rgb(46, 46, 255)
+}
+
+.answer:hover {
+  background-color: rgb(46, 46, 255)
+}

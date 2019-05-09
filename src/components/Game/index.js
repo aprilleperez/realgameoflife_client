@@ -1,29 +1,37 @@
 import React from 'react'
+import Responses from "../Responses"
 // import { Redirect } from "react-router-dom"
 
 class Game extends React.Component {
 
   state = {
     gameRunning: false,
-    question: 0
+    currentQuestion: 0
   }
 
   componentDidMount() {
-    console.log("did mount")
+    console.log(this.props.state.gameObj);
+
+    // If this is the host, tell all the player clients to start
     if (this.props.state.host) {
-      console.log(`Game comp mounted, sending start to all players in room ${this.props.state.gameCode}`)
       this.props.socket.emit("startPlayers", this.props.state.gameCode, this.props.state.gameObj)
     }
+  }
+
+  madeChoice(num) {
+    // player's answer
+    console.log(`you chose response #${num}`)
+    // this.props.socket.emit("answerLockedIn");
   }
 
   render() {
 
     let socket = this.props.socket;
 
-    if (!this.props.state.host && !this.state.gameRunning){
+    if (!this.props.state.host && !this.state.gameRunning) {
       // if not the host, automatically start game
 
-      this.setState({gameRunning: true})
+      this.setState({ gameRunning: true })
     }
 
     // listen for game start message, relevant for host
@@ -36,12 +44,15 @@ class Game extends React.Component {
       let gameObj = this.props.state.gameObj;
 
       if (this.props.state.host) {
+
         return (
-          <div>Question: {gameObj.questions[0].Q}!</div>
+          // host
+          <div>Question: {gameObj.questions[this.state.currentQuestion].Q}</div>
         )
       } else {
         return (
-          <div>Responses: {gameObj.questions[0].responses[0].response}!</div>
+          // players
+          <Responses madeChoice={this.madeChoice} answers={gameObj.questions[this.state.currentQuestion].responses} />
         )
       }
     }
@@ -51,8 +62,8 @@ class Game extends React.Component {
 
 
     return (
-      <div>LOADING GAME ^_^
-        {console.log(this.props.state.gameObj)}
+      <div>
+        LOADING GAME ^_^
       </div>
     )
     // redirect to root if this isn't a valid game
