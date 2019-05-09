@@ -3,14 +3,19 @@
   padding: 10px;
   background-color: rgb(0, 105, 119);
   color: white;
-  transition: 300ms;
+  transition: 70ms;
   margin: 25px;
 }
 
 .answer:active {
-  background-color: rgb(46, 46, 255)
+  background-color: rgb(14, 39, 78)
 }
 
-.answer:hover {
-  background-color: rgb(46, 46, 255)
+.selectedAnswer{
+  height: 50px;
+  padding: 10px;
+  background-color: rgb(14, 39, 78);
+  color: white;
+  transition: 70ms;
+  margin: 25px;
 }

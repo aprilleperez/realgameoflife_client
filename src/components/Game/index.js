@@ -11,17 +11,10 @@ class Game extends React.Component {
 
   componentDidMount() {
     console.log(this.props.state.gameObj);
-
     // If this is the host, tell all the player clients to start
     if (this.props.state.host) {
       this.props.socket.emit("startPlayers", this.props.state.gameCode, this.props.state.gameObj)
     }
-  }
-
-  madeChoice(num) {
-    // player's answer
-    console.log(`you chose response #${num}`)
-    // this.props.socket.emit("answerLockedIn");
   }
 
   render() {
@@ -37,6 +30,7 @@ class Game extends React.Component {
     // listen for game start message, relevant for host
     socket.on("gameStart", () => {
       console.log("heard gameStart")
+      console.log(this.props.gameObj)
       this.setState({ gameRunning: true })
     })
 
@@ -52,7 +46,7 @@ class Game extends React.Component {
       } else {
         return (
           // players
-          <Responses madeChoice={this.madeChoice} answers={gameObj.questions[this.state.currentQuestion].responses} />
+          <Responses answers={gameObj.questions[this.state.currentQuestion].responses} socket={this.props.socket}/>
         )
       }
     }
