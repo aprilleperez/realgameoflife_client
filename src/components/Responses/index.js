@@ -4,17 +4,32 @@ import "./Responses.css"
 
 class LandingPage extends React.Component {
   state = {
-    choiceMade: false
+    choiceMade: false,
+    timer: 15,
+  }
+
+  componentDidMount() {
+    console.log("Responses mounted, starting timer")
+    let time = this.state.timer;
+
+    setInterval(() => {
+      if (time > 0) {
+        time--;
+        this.setState({ timer: time })
+      }else{
+        // if the timer runs out, choose the default option
+        this.madeChoice(0)
+      }
+    }, 1000)
   }
 
   madeChoice(num) {
     // player's answer
     if (!this.state.choiceMade) {
-      this.setState({choiceMade: true})
+      this.setState({ choiceMade: true })
       console.log(`you chose response #${num}`);
       document.getElementById(num).setAttribute("class", "selectedAnswer")
-
-      this.props.socket.emit("choiceMade");
+      this.props.socket.emit("choiceMade", this.props.gameCode);
     }
   }
 
@@ -28,8 +43,21 @@ class LandingPage extends React.Component {
       )
     });
 
+    // listen for trigger to show outcome
+    this.props.socket.on("showResult", ()=>{
+      this.setState({madeChoice: true})
+    })
+
+    if(this.state.madeChoice){
+      return(
+        "show outcome"
+      )
+    }
     return (
-      <div>{ansArr}</div>
+      <div>
+        <div>{ansArr}</div>
+        <div>Timer: {this.state.timer}</div>
+      </div>
     )
   }
 }

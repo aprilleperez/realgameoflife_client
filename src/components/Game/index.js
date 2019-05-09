@@ -6,7 +6,7 @@ class Game extends React.Component {
 
   state = {
     gameRunning: false,
-    currentQuestion: 0
+    currentQuestion: 0,
   }
 
   componentDidMount() {
@@ -46,7 +46,7 @@ class Game extends React.Component {
       } else {
         return (
           // players
-          <Responses answers={gameObj.questions[this.state.currentQuestion].responses} socket={this.props.socket}/>
+          <Responses timer={this.state.timer} answers={gameObj.questions[this.state.currentQuestion].responses} socket={this.props.socket} gameCode={this.props.state.gameCode}/>
         )
       }
     }
