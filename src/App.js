@@ -25,7 +25,7 @@ class App extends Component {
 
   render() {
     return (
-      <BrowserRouter>
+      <BrowserRouter basename = {process.env.PUBLIC_URL}>
         <PrimaryLayout
           state={this.state}
           updateState={this.updateState}
