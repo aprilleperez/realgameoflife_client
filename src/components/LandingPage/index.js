@@ -14,7 +14,8 @@ const LandingPage = (props) => {
       <div className="jumbotron m-5">
         <div className="row">
           <Link to="/" className="ml-3"><Button text="Launch a Game" buttonType="green" /></Link>
-          <Link to="/" className="ml-3"><Button text="Create/Edit Games" buttonType="green" /></Link>
+         
+          <a href='https://aprilleperez.github.io/realgameoflife_admin/' className="ml-3"><Button text="Create/Edit Games" buttonType="green" /></a>
         </div>
         <div className="row mt-5">
         <h1 className="ml-3 align-bottom">Enter Game Code:</h1>
