@@ -16,7 +16,7 @@ class Lobby extends React.Component {
   getDefaultGame = async () => {
     let results = await axios.get("https://real-life-api.herokuapp.com/api/games")
     // console.log(this.props.updateState)
-    this.props.updateState({ gameObj: results.data[5] })
+    this.props.updateState({ gameObj: results.data })
   }
 
   gameLaunchHandler = () => {
@@ -37,11 +37,11 @@ class Lobby extends React.Component {
     socket.on("gameStart", async () => {
       console.log("heard gameStart")
       let results = await axios.get("https://real-life-api.herokuapp.com/api/games")
-      // console.log("All games:")
-      // console.log(results)
+
       //hardcoding in the game, needs update
       this.props.updateState({ gameObj: results.data[0] })
-      
+      console.log(results.data[0])
+
       this.props.history.push('/game');
     })
 

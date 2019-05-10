@@ -28,6 +28,7 @@ class Responses extends React.Component {
     // player's answer
     if (!this.state.choiceMade) {
       this.setState({ choiceMade: true, choice: num })
+      this.props.choiceCB(num);
       console.log(`you chose response #${num}`);
       document.getElementById(num).setAttribute("class", "selectedAnswer")
       this.props.socket.emit("choiceMade", this.props.gameCode);
@@ -43,11 +44,6 @@ class Responses extends React.Component {
         </div>
       )
     });
-
-    // // listen for trigger to show outcome
-    // this.props.socket.on("showResult", ()=>{
-    //   this.setState({madeChoice: true})
-    // })
 
     if(this.state.madeChoice){
       let outcome = this.calcOutcome();
