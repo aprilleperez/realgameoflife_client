@@ -2,7 +2,7 @@ import React from "react";
 import { withRouter } from 'react-router-dom'
 import "./Responses.css"
 
-class LandingPage extends React.Component {
+class Responses extends React.Component {
   state = {
     choiceMade: false,
     choice: undefined,
@@ -44,15 +44,14 @@ class LandingPage extends React.Component {
       )
     });
 
-    // listen for trigger to show outcome
-    this.props.socket.on("showResult", ()=>{
-      this.setState({madeChoice: true})
-    })
+    // // listen for trigger to show outcome
+    // this.props.socket.on("showResult", ()=>{
+    //   this.setState({madeChoice: true})
+    // })
 
     if(this.state.madeChoice){
-      return(
-        "show outcome"
-      )
+      let outcome = this.calcOutcome();
+      return({outcome})
     }
     return (
       <div>
@@ -63,4 +62,4 @@ class LandingPage extends React.Component {
   }
 }
 
-export default LandingPage
+export default Responses
