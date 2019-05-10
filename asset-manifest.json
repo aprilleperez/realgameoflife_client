@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/realgameoflife_client/static/css/main.da77d585.chunk.css",
-    "main.js": "/realgameoflife_client/static/js/main.6db5582e.chunk.js",
-    "main.js.map": "/realgameoflife_client/static/js/main.6db5582e.chunk.js.map",
+    "main.js": "/realgameoflife_client/static/js/main.5beae3d1.chunk.js",
+    "main.js.map": "/realgameoflife_client/static/js/main.5beae3d1.chunk.js.map",
     "runtime~main.js": "/realgameoflife_client/static/js/runtime~main.5bdf907d.js",
     "runtime~main.js.map": "/realgameoflife_client/static/js/runtime~main.5bdf907d.js.map",
-    "static/js/2.dacb67c2.chunk.js": "/realgameoflife_client/static/js/2.dacb67c2.chunk.js",
-    "static/js/2.dacb67c2.chunk.js.map": "/realgameoflife_client/static/js/2.dacb67c2.chunk.js.map",
+    "static/js/2.5f52d34d.chunk.js": "/realgameoflife_client/static/js/2.5f52d34d.chunk.js",
+    "static/js/2.5f52d34d.chunk.js.map": "/realgameoflife_client/static/js/2.5f52d34d.chunk.js.map",
     "index.html": "/realgameoflife_client/index.html",
-    "precache-manifest.30ee1789cd15885ac4dda396bb3c84ac.js": "/realgameoflife_client/precache-manifest.30ee1789cd15885ac4dda396bb3c84ac.js",
+    "precache-manifest.a8787710bc0248a27a413c9e630ec7ba.js": "/realgameoflife_client/precache-manifest.a8787710bc0248a27a413c9e630ec7ba.js",
     "service-worker.js": "/realgameoflife_client/service-worker.js",
     "static/css/main.da77d585.chunk.css.map": "/realgameoflife_client/static/css/main.da77d585.chunk.css.map"
   }
