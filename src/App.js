@@ -5,9 +5,7 @@ import './App.css';
 import PrimaryLayout from '../src/components/PrimaryLayout'
 import io from "socket.io-client";
 
-let socket = "";
-process.env.PORT ? socket = io('https://real-life-api.herokuapp.com/') 
-: socket = io("localhost:3001");
+let socket = io('https://real-life-api.herokuapp.com/');
 
 // let socket = io('https://real-life-api.herokuapp.com/')
 
