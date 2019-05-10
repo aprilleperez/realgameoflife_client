@@ -13,12 +13,13 @@ class Responses extends React.Component {
     console.log("Responses mounted, starting timer")
     let time = this.state.timer;
 
-    setInterval(() => {
+    let tMinus = setInterval(() => {
       if (time > 0) {
         time--;
         this.setState({ timer: time })
       }else{
         // if the timer runs out, choose the default option
+        clearInterval(tMinus);
         this.madeChoice(0)
       }
     }, 1000)

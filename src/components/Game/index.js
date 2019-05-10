@@ -28,11 +28,18 @@ class Game extends React.Component {
       })
     }
 
-    this.countdown(10, "intro", "QandA");
+    this.countdown(10, "QandA");
 
     // listen for trigger to show outcome
     this.props.socket.on("showResult", () => {
-      this.setState({ gameState: "outcomes" })
+      console.log("setting gameState to outcomes");
+
+      if (this.state.currentQuestion < this.props.state.gameObj.questions.length - 1) {
+        this.countdown(3, "QandA");
+        this.setState({ gameState: "outcomes" })
+      }
+      else // if we've run out of questions, end the game
+        this.setState({ gameState: "end" })
     })
   }
 
@@ -49,11 +56,14 @@ class Game extends React.Component {
       }
       // console.log(`this.state.gameState: ${this.state.gameState}, currentGameState: ${currentGameState}`)
       // if (this.state.gameState === currentGameState) {
-      else{
+      else {
         // when the timer runs out, move to the first question
         console.log(`setting gamestate as ${nextGameState}`)
-        this.setState({ 
-          gameState: nextGameState ,
+        // increment question when we move on to a new QandA state
+        if (this.state.gameState === "outcomes" && nextGameState === "QandA")
+          this.setState({ currentQuestion: this.state.currentQuestion + 1 })
+        this.setState({
+          gameState: nextGameState,
           allowTimer: true
         })
         clearInterval(tMinus)
@@ -100,11 +110,15 @@ class Game extends React.Component {
             )
 
           case "outcomes":
-            // start timer for next question
-            if (this.state.timer < 1 && this.allowTimer) {
-              this.setState({allowTimer: false});
-              this.countdown(10, "QandA");
-            }
+            // // start timer for next question
+            // if (this.state.timer < 1 && this.allowTimer) {
+            //   this.setState({ allowTimer: false });
+            //   console.log(`current question: ${this.state.currentQuestion}, q arr length: ${gameObj.questions.length}`)
+            //   if (this.state.currentQuestion < gameObj.questions.length - 2)
+            //     this.countdown(10, "QandA");
+            //   else
+            //     this.setState({ gameState: "end" })
+            // }
             return (
               <div className="container">
                 <div>Well, let's see what that did...</div>
@@ -112,6 +126,8 @@ class Game extends React.Component {
               </div>
             )
 
+          case "end":
+            return (<div>that's all folks</div>)
         }
       }
       // **************************************
@@ -138,7 +154,6 @@ class Game extends React.Component {
             }
 
           case "QandA":
-            // clearInterval(this.countdown)
             return (
               // show responses for current question
               <Responses choiceCB={this.choiceCB} timer={this.state.timer} answers={gameObj.questions[this.state.currentQuestion].responses} socket={this.props.socket} gameCode={this.props.state.gameCode} />
@@ -148,6 +163,9 @@ class Game extends React.Component {
             return (
               <Outcomes choice={this.state.choice} gameObj={gameObj} avatar={this.state.avatar} qNum={this.state.currentQuestion} />
             )
+
+          case "end":
+            return (<div>that's all folks</div>)
 
         }
       }
