@@ -1,7 +1,7 @@
-import React  from 'react'
-// import { Link } from 'react-router-dom'
-// import Button from '../Button'
-import {Button, Modal, Form, Accordion, Card, Col} from 'react-bootstrap';
+import React  from 'react';
+import {Button, Modal, Form, Accordion, Card, Col, Row} from 'react-bootstrap';
+import axios from 'axios';
+import API from '../../utils/API';
 
 
 class NewModal extends React.Component {
@@ -15,7 +15,67 @@ class NewModal extends React.Component {
         show: false,
       };
     }
+
+    handleInputChange = event => {
+      const { name, value } = event.target;
+      this.setState({
+        [name]: value
+      });
+    };
+
+    handleFormSubmit = event => {
+      event.preventDefault();
+      if (this.state.firstName && this.state.lastName && this.name.password && this.name.orgName) {
+        API.saveUser({
+          firstName: this.state.firstName,
+          lastName: this.state.lastName,
+          password: this.state.passsword,
+          orgName: this.state.orgName
+        })
+          .catch(err => console.log(err));
+      }
+    };
   
+    registerUser = (event) => {
+      event.preventDefault();
+      const { firstName, lastName, email, password, orgName } = this.state;
+      
+      const newUser = {
+        firstName,
+        lastName,
+        email,
+        password,
+        orgName
+      }
+      axios.post('https://real-life-api.herokuapp.com/api/admin/signup/', newUser)
+        .then(res => {
+          console.log("NEW USER CREATED")
+          console.log(res)
+        })
+        .catch(err => {
+          console.log(err);
+        })
+    }
+
+    logInUser = (event) => {
+      event.preventDefault();
+      const { email, password } = this.state;
+
+      const loggedUser={
+        email, password
+      }
+
+      axios.post('https://real-life-api.herokuapp.com/api/admin/login', loggedUser)
+        .then(res => {
+          console.log("YOU'RE LOGGED IN!")
+          console.log(res)
+        })
+        .catch(err => {
+          console.log("I'M BROKEN! FIX ME!")
+          console.log(err);
+        })
+    }
+
     handleClose() {
       this.setState({ show: false });
     }
@@ -39,13 +99,15 @@ class NewModal extends React.Component {
             <Form>
                 <Form.Group controlId="formGroupEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="johndoe@test.com" />
+                    <Form.Control type="email" onChange={this.handleInputChange} name="email" placeholder="johndoe@test.com" />
                 </Form.Group>
                 <Form.Group controlId="formGroupPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
+                    <Form.Control type="password"  onChange={this.handleInputChange} name="password" placeholder="Password" />
                 </Form.Group>
+                Want to create a game? Be an admin and register down below!
             </Form>
+            <br></br>
             <Accordion>
             <Card>
                 <Card.Header>
@@ -57,53 +119,52 @@ class NewModal extends React.Component {
                 <Card.Body>
                 <Form>
             <Form.Row>
-                <row>
+                <Row>
                     <Form.Group as={Col} controlId="formGridFirstName">
                     <Form.Label>First Name</Form.Label>
-                    <Form.Control type="firstName" placeholder="John" />
+                    <Form.Control type="firstName" value={this.state.firstName} name = 'firstName' onChange={this.handleInputChange} placeholder="John" />
                     </Form.Group>
-                </row>
-                <row>
+                </Row>
+                <Row>
                     <Form.Group as={Col} controlId="formGridLastName">
                     <Form.Label>Last Name</Form.Label>
-                    <Form.Control type="lastName" placeholder="Doe" />
+                    <Form.Control type="lastName" value={this.state.lastName} name = 'lastName' onChange={this.handleInputChange} placeholder="Doe" />
                     </Form.Group>
-                </row>
-                <row>
+                </Row>
+                <Row>
                     <Form.Group as={Col} controlId="formGridEmail">
                     <Form.Label>Email</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
+                    <Form.Control type="email" value={this.state.email} name = 'email' onChange={this.handleInputChange} placeholder="Enter email" />
                     </Form.Group>
-                </row>
-                <row>
+                </Row>
+                <Row>
                     <Form.Group as={Col} controlId="formGridPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
+                    <Form.Control type="password" value={this.state.password} name = 'password' onChange={this.handleInputChange} placeholder="Password" />
                     </Form.Group>
-                </row>
-                <row>
+                </Row>
+                <Row>
                     <Form.Group as={Col} controlId="formGridOrg">
                     <Form.Label>Organization Name</Form.Label>
-                    <Form.Control type="orgName" placeholder="ie Starbucks Coffee Company" />
+                    <Form.Control type="orgName" value={this.state.orgName} name = 'orgName' onChange={this.handleInputChange} placeholder="nunyaINC" />
                     </Form.Group>
-                </row>
+                </Row>
             </Form.Row>
-
-            <Button variant="primary" type="submit">
+            <Button onClick={this.registerUser} variant="primary" type="submit">
                 Register
             </Button>
             </Form>
                 </Card.Body>
                 </Accordion.Collapse>
             </Card>
-        
+       {/* This is where the sign up form pops up  */}
         </Accordion>
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={this.handleClose}>
                 Close
-              </Button>
-              <Button variant="primary" onClick={this.handleClose}>
+              </Button>              
+              <Button onClick={this.logInUser} variant="primary" type="submit">
                 Submit
               </Button>
             </Modal.Footer>
