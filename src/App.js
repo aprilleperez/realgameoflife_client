@@ -7,8 +7,6 @@ import io from "socket.io-client";
 
 let socket = io('https://real-life-api.herokuapp.com/');
 
-// let socket = io('https://real-life-api.herokuapp.com/')
-
 class App extends Component {
 
   state = {
