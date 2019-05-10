@@ -21,7 +21,7 @@ class PrimaryLayout extends React.Component {
     }
 
     const lobby = () => {
-      return <Lobby state={this.props.state} updateState={this.props.updateState} socket={this.props.socket} updateState={this.props.updateState} />
+      return <Lobby state={this.props.state} socket={this.props.socket} updateState={this.props.updateState} />
 
     }
 
