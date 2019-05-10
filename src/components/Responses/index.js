@@ -5,6 +5,7 @@ import "./Responses.css"
 class LandingPage extends React.Component {
   state = {
     choiceMade: false,
+    choice: undefined,
     timer: 15,
   }
 
@@ -26,7 +27,7 @@ class LandingPage extends React.Component {
   madeChoice(num) {
     // player's answer
     if (!this.state.choiceMade) {
-      this.setState({ choiceMade: true })
+      this.setState({ choiceMade: true, choice: num })
       console.log(`you chose response #${num}`);
       document.getElementById(num).setAttribute("class", "selectedAnswer")
       this.props.socket.emit("choiceMade", this.props.gameCode);
