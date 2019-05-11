@@ -106,7 +106,7 @@ class Game extends React.Component {
 
           case "QandA":
             return (
-              <div>Question: {gameObj.questions[this.state.currentQuestion].Q}</div>
+              <div><h1>Question: {gameObj.questions[this.state.currentQuestion].Q}</h1></div>
             )
 
           case "outcomes":
