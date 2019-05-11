@@ -7,6 +7,19 @@
   margin: 25px;
 }
 
+.invalid {
+  height: 50px;
+  padding: 10px;
+  background-color: rgb(85, 85, 85);
+  color: white;
+  transition: 70ms;
+  margin: 25px;
+}
+
+.invalid:active {
+  background-color: rgb(201, 0, 0)
+}
+
 .answer:active {
   background-color: rgb(14, 39, 78)
 }

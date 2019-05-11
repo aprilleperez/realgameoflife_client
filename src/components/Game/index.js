@@ -110,15 +110,6 @@ class Game extends React.Component {
             )
 
           case "outcomes":
-            // // start timer for next question
-            // if (this.state.timer < 1 && this.allowTimer) {
-            //   this.setState({ allowTimer: false });
-            //   console.log(`current question: ${this.state.currentQuestion}, q arr length: ${gameObj.questions.length}`)
-            //   if (this.state.currentQuestion < gameObj.questions.length - 2)
-            //     this.countdown(10, "QandA");
-            //   else
-            //     this.setState({ gameState: "end" })
-            // }
             return (
               <div className="container">
                 <div>Well, let's see what that did...</div>
@@ -127,7 +118,7 @@ class Game extends React.Component {
             )
 
           case "end":
-            return (<div>that's all folks</div>)
+            return (<div><h1>Ze End!</h1></div>)
         }
       }
       // **************************************
@@ -156,7 +147,7 @@ class Game extends React.Component {
           case "QandA":
             return (
               // show responses for current question
-              <Responses choiceCB={this.choiceCB} timer={this.state.timer} answers={gameObj.questions[this.state.currentQuestion].responses} socket={this.props.socket} gameCode={this.props.state.gameCode} />
+              <Responses choiceCB={this.choiceCB} timer={this.state.timer} question={gameObj.questions[this.state.currentQuestion]} answers={gameObj.questions[this.state.currentQuestion].responses} socket={this.props.socket} gameCode={this.props.state.gameCode} traits={gameObj.traits} avatar={this.state.avatar} />
             )
 
           case "outcomes":
@@ -165,7 +156,7 @@ class Game extends React.Component {
             )
 
           case "end":
-            return (<div>that's all folks</div>)
+            return (<div><h1>Ze End!</h1></div>)
 
         }
       }
