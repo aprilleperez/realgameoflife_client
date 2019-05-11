@@ -6,6 +6,7 @@ import PrimaryLayout from '../src/components/PrimaryLayout'
 import io from "socket.io-client";
 
 let socket = io('https://real-life-api.herokuapp.com/');
+// let socket = io('localhost:3001/');
 
 class App extends Component {
 
@@ -19,7 +20,6 @@ class App extends Component {
   }
 
   updateState = (vals) => {
-    // console.log(`updating top state`)
     this.setState(vals);
   }
 
