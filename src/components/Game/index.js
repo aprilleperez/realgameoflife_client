@@ -99,8 +99,10 @@ class Game extends React.Component {
           case "intro":
             return (
               <div>
-                <div>{gameObj.name}</div>
-                <div>Game starts in: {this.state.timer} seconds</div>
+                <h1>
+                  <div>{gameObj.name}</div>
+                  <div>Game starts in: {this.state.timer} seconds</div>
+                </h1>
               </div>
             )
 
@@ -112,13 +114,15 @@ class Game extends React.Component {
           case "outcomes":
             return (
               <div className="container">
-                <div>Well, let's see what that did...</div>
-                <div>Next question in {this.state.timer}</div>
+                <h1>
+                  <div>Well, let's see what that did...</div>
+                  <div>Next question in {this.state.timer}</div>
+                </h1>
               </div>
             )
 
           case "end":
-            return (<div><h1>Ze End!</h1></div>)
+            return (<div><h1>Let's see how you did!</h1></div>)
         }
       }
       // **************************************
@@ -137,10 +141,12 @@ class Game extends React.Component {
                 traits.push(<div>{gameObj.traits["trait" + i] + ": " + this.state.avatar["trait" + i]}</div>)
               }
               return (
-                <div>
-                  <div>{this.state.avatar.name}</div>
-                  <div>{traits}</div>
-                </div>
+                <React.Fragment>
+                  <h1>
+                    <div>{this.state.avatar.name}</div>
+                    <div>{traits}</div>
+                  </h1>
+                </React.Fragment>
               )
             }
 
@@ -156,7 +162,7 @@ class Game extends React.Component {
             )
 
           case "end":
-            return (<div><h1>Ze End!</h1></div>)
+            return (<div><h1>What a wild ride!</h1></div>)
 
         }
       }
