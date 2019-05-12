@@ -35,9 +35,9 @@ const LandingPage = (props) => {
       <Nav loggedIn={props.state.loggedIn} userName={props.state.userName} />
       <div className="jumbotron m-5">
         <div className="row" onClick={launchDefaultGame}>
-          <Button text="Launch a Game" buttonType="green" />
+          <Button text="Launch a Game" />
 
-          <a href='https://aprilleperez.github.io/realgameoflife_admin/' className="ml-3"><Button text="Create/Edit Games" buttonType="green" /></a>
+          <a href='https://aprilleperez.github.io/realgameoflife_admin/' className="ml-3"><Button text="Create/Edit Games" /></a>
         </div>
         <div className="row mt-5">
           <h1 className="ml-3 align-bottom">Enter Game Code:</h1>

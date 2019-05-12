@@ -7,7 +7,7 @@ function Button(props) {
   // let className = "button " + props.buttonType;
 
   return (
-      <button className="appButton">{props.text}</button> 
+      <button className="appButton" to={props.to} value={props.value}>{props.text}</button> 
       // className={className}
   )
 }
