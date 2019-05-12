@@ -72,7 +72,7 @@ class Responses extends React.Component {
     // add up the current values of the relevant traits for this question, and disable any responses the player isn't qualified for
     this.props.answers.forEach((elem, i) => {
       console.log(this.state.score1, this.state.score2)
-      if (this.state.score1 + this.state.score2 > ((i + 1) * 8 - 4)) {
+      if (this.state.score1 + this.state.score2 > ((i + 1) * 4 - 4)) {
         ansArr.push(
           <div className="answer" id={i} key={i} onClick={() => { this.madeChoice(i) }}>
             <p>{elem.response}</p>
