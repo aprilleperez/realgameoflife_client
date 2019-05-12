@@ -1,3 +1,10 @@
+body {
+  font-family: 'Muli', sans-serif;
+  background: rgb(246,225,161);
+  background: linear-gradient(350deg, rgba(246,225,161,1) 0%, rgba(175,217,234,1) 75%);
+  height: 100vh;
+}
+
 .main {
   align-items: center;
 }
