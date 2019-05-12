@@ -70,7 +70,13 @@ class Lobby extends React.Component {
       let topMessage = "";
 
       this.state.host ?
-        topMessage = ("To join this game, go to *URL* and enter the code " + this.props.state.gameCode)
+        topMessage =
+        <React.Fragment>
+          <div>To join go to</div>
+          <div><h1>https://bit.ly/2JiJkmy</h1></div>
+          <div>and enter code:</div>
+          <div><h1>{this.props.state.gameCode}</h1></div>
+        </React.Fragment>
         : topMessage = "Waiting for game to start"
 
       // construct players ready string and icons
