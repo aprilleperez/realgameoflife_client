@@ -1,4 +1,4 @@
-.green {
+/* .green {
   background-color: #4CAF50;
   border: none;
   color: white;
@@ -40,5 +40,22 @@
 
 .navlink:hover {
   opacity: .8;
+} */
+
+.appButton {
+  width: 392px;
+  height: 75px;
+  margin: 32px;
+  padding: 8px 16px;
+  background-color: #F1C5B0;
+  border: none;
+  color:white;
+  text-align: center;
+  font-weight: 700;
+  font-size: 24px;
+  cursor: pointer;
 }
 
+.appButton:hover {
+  opacity: .7;
+}

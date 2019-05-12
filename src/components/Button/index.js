@@ -4,10 +4,11 @@ import "./button.css";
 
 function Button(props) {
 
-  let className = "button " + props.buttonType;
+  // let className = "button " + props.buttonType;
 
   return (
-      <button className={className}>{props.text}</button>
+      <button className="appButton">{props.text}</button> 
+      // className={className}
   )
 }
 
