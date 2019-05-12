@@ -35,7 +35,7 @@ class Game extends React.Component {
       console.log("setting gameState to outcomes");
 
       if (this.state.currentQuestion < this.props.state.gameObj.questions.length - 1) {
-        this.countdown(3, "QandA");
+        this.countdown(10, "QandA");
         this.setState({ gameState: "outcomes" })
       }
       else // if we've run out of questions, end the game
