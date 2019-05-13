@@ -59,7 +59,7 @@ const LandingPage = (props) => {
       <Container>
         <Row>
           <Col size="sm-12">
-            <h1 className="text-center">Real Game of Life</h1>
+            <h1 className="text-center appHero">Real Game of Life</h1>
           </Col>
         </Row>
 
@@ -71,7 +71,7 @@ const LandingPage = (props) => {
 
         <Row>
           <Col size="sm-12">
-            <h5 className="text-center landingIns">For Game Hosts: Start by either launching our default game, or by creating or editing a custom game (must be logged in as an admin for this).</h5>
+            <h5 className="text-center landingIns"><strong>For Game Hosts:</strong> Start by either launching our default game, or by creating or editing a custom game (must be logged in as an admin for this).</h5>
           </Col>
         </Row>
 
@@ -85,18 +85,24 @@ const LandingPage = (props) => {
           </Col>
         </Row>
 
+        <hr></hr>
+
         <Row>
           <Col size="sm-12">
-            <h5 className="text-center landingIns">For Game Players: Enter a game code provided to you by the host.</h5>
+            <h5 className="text-center landingIns"><strong>For Game Players:</strong> Enter a game code below provided to you by the host.</h5>
           </Col>
         </Row>
 
-        <Row>
-          <h5 className="text-center">Enter Game Code:</h5>
-        </Row>
+        {/* <Row>
+          <Col size="sm-12">
+            <h5 className="text-center">Enter Game Code:</h5>
+          </Col>
+        </Row> */}
 
         <Row>
-          <InputField updateState={props.updateState} />
+          <Col size="sm-12">
+            <InputField updateState={props.updateState} />
+          </Col>
         </Row>
 
       </Container>
