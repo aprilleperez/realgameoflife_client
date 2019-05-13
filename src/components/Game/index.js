@@ -81,7 +81,8 @@ class Game extends React.Component {
   }
 
   updateStats = (stats) => {
-
+    // MAKE THIS UPDATE CURRENTSTATS
+    return null
   }
 
   render() {
@@ -148,7 +149,8 @@ class Game extends React.Component {
                 stats.push(this.state.avatar["trait" + i]);
                 traits.push(<div>{gameObj.traits["trait" + i] + ": " + this.state.avatar["trait" + i]}</div>)
               }
-              this.setState({ startingTraits: traits, currentStats: stats })
+              if (!this.state.startingTraits)
+                this.setState({ startingTraits: traits, currentStats: stats })
               return (
                 <React.Fragment>
                   <h1>
@@ -167,7 +169,7 @@ class Game extends React.Component {
 
           case "outcomes":
             return (
-              <Outcomes choice={this.state.choice} gameObj={gameObj} avatar={this.state.avatar} qNum={this.state.currentQuestion} statsCB={this.updateStats}/>
+              <Outcomes choice={this.state.choice} gameObj={gameObj} avatar={this.state.avatar} qNum={this.state.currentQuestion} statsCB={this.updateStats} />
             )
 
           case "end":
