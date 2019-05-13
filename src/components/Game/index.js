@@ -12,7 +12,9 @@ class Game extends React.Component {
     allowTimer: true,
     timer: 10,
     avatar: undefined,
-    choice: undefined
+    choice: undefined,
+    startingTraits: undefined,
+    currentStats: undefined
   }
 
   componentDidMount() {
@@ -77,6 +79,11 @@ class Game extends React.Component {
   choiceCB = (num) => {
     this.setState({ choice: num })
     console.log(`setting choice ${num} in Game component`)
+  }
+
+  updateStats = (stats) => {
+    // MAKE THIS UPDATE CURRENTSTATS
+    return null
   }
 
   render() {
@@ -150,9 +157,13 @@ class Game extends React.Component {
             else {
               // Avatar intro view
               let traits = [];
+              let stats = [];
               for (let i = 1; i < 6; i++) {
+                stats.push(this.state.avatar["trait" + i]);
                 traits.push(<div>{gameObj.traits["trait" + i] + ": " + this.state.avatar["trait" + i]}</div>)
               }
+              if (!this.state.startingTraits)
+                this.setState({ startingTraits: traits, currentStats: stats })
               return (
                 <React.Fragment>
                   <div className="centerDivs">
@@ -173,16 +184,19 @@ class Game extends React.Component {
 
           case "outcomes":
             return (
-              <Outcomes choice={this.state.choice} gameObj={gameObj} avatar={this.state.avatar} qNum={this.state.currentQuestion} />
+              <Outcomes choice={this.state.choice} gameObj={gameObj} avatar={this.state.avatar} qNum={this.state.currentQuestion} statsCB={this.updateStats} />
             )
 
           case "end":
+
             return (<div className="centerDivs">
               <h1>What a wild ride!</h1>
               <br></br>
+              <h1>{this.state.avatar.name}</h1>
+              <h1>{this.state.startingTraits}</h1>
+              <h1>{this.state.stats}</h1>
               <a href="https://aprilleperez.github.io/realgameoflife_client/">Back to Site</a>
             </div>)
-
         }
       }
     }

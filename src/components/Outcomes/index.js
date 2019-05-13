@@ -12,6 +12,8 @@ function Outcomes(props) {
   let score1 = outcome[0].amount;
   let score2 = outcome[1].amount;
 
+  props.statsCB();
+
   if (score1 > 0) score1 = `+${score1}`;
   if (score2 > 0) score2 = `+${score2}`;
 
