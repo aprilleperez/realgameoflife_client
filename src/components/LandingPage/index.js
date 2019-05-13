@@ -32,6 +32,85 @@ const LandingPage = (props) => {
   }
 
   return (
+    <div>
+      <Nav loggedIn={props.state.loggedIn} userName={props.state.userName} />
+      <Container>
+        <Row>
+          <Col size="sm-12">
+            <div className="appHero">
+              <h1 className="text-center appHeader">Real Game of Life</h1>
+            </div>
+
+          </Col>
+        </Row>
+
+        <Row>
+          <Col size="sm-12">
+            <h4 className="text-center appSubHeader orange">Navigate through life's <em>real</em> issues!</h4>
+          </Col>
+        </Row>
+
+        <Row>
+
+          <Col size="sm-6">
+            <Row>
+              <Col size="sm-12">
+                <h5 className="text-center landingIns"><strong className="orange">For Game Hosts:</strong>
+                  <br></br>
+                  <br></br>
+                  Start by either launching our default game, or by creating or editing a custom game
+                  <br></br>
+                  (must be logged in as an admin for this).</h5>
+              </Col>
+            </Row>
+
+            <Row>
+              <Col size="sm-12">
+                <Button text="Launch Default Game" onClick={launchDefaultGame} />
+              </Col>
+            </Row>
+
+            <Row>
+              <Col size="sm-12">
+                <a href='https://aprilleperez.github.io/realgameoflife_admin/'><Button text="Create/Edit Games" /></a>
+              </Col>
+            </Row>
+          </Col>
+
+
+          <Col size="sm-6">
+            <Row>
+              <Col size="sm-12">
+                <h5 className="text-center landingIns"><strong className="orange">For Game Players:</strong>
+                <br></br>
+                <br></br>
+                Enter a game code below provided to you by the host.</h5>
+              </Col>
+            </Row>
+
+            <Row>
+              <Col size="sm-12">
+                <InputField updateState={props.updateState} />
+              </Col>
+            </Row>
+          </Col>
+
+        </Row>
+
+      </Container>
+    </div >
+  )
+}
+
+export default withRouter(LandingPage);
+
+
+
+
+
+
+
+
     // <div>
     //   <Nav loggedIn={props.state.loggedIn} userName={props.state.userName} />
     //   <div className="jumbotron m-5 fluid">
@@ -54,62 +133,3 @@ const LandingPage = (props) => {
     //     <InputField updateState={props.updateState} />
     //   </div>
     // </div >
-    <div>
-      <Nav loggedIn={props.state.loggedIn} userName={props.state.userName} />
-      <Container>
-        <Row>
-          <Col size="sm-12">
-            <h1 className="text-center appHero">Real Game of Life</h1>
-          </Col>
-        </Row>
-
-        <Row>
-          <Col size="sm-12">
-            <h3 className="text-center">Navigate through life's <em>real</em> issues!</h3>
-          </Col>
-        </Row>
-
-        <Row>
-          <Col size="sm-12">
-            <h5 className="text-center landingIns"><strong>For Game Hosts:</strong> Start by either launching our default game, or by creating or editing a custom game (must be logged in as an admin for this).</h5>
-          </Col>
-        </Row>
-
-        <Row>
-          <Col size="sm-6">
-            <Button text="Launch Default Game" onClick={launchDefaultGame} />
-          </Col>
-
-          <Col size="sm-6">
-            <a href='https://aprilleperez.github.io/realgameoflife_admin/'><Button text="Create/Edit Games" /></a>
-          </Col>
-        </Row>
-
-        <hr></hr>
-
-        <Row>
-          <Col size="sm-12">
-            <h5 className="text-center landingIns"><strong>For Game Players:</strong> Enter a game code below provided to you by the host.</h5>
-          </Col>
-        </Row>
-
-        {/* <Row>
-          <Col size="sm-12">
-            <h5 className="text-center">Enter Game Code:</h5>
-          </Col>
-        </Row> */}
-
-        <Row>
-          <Col size="sm-12">
-            <InputField updateState={props.updateState} />
-          </Col>
-        </Row>
-
-      </Container>
-
-    </div>
-
-  )
-}
-
-export default withRouter(LandingPage);
