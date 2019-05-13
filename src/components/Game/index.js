@@ -33,13 +33,13 @@ class Game extends React.Component {
     // listen for trigger to show outcome
     this.props.socket.on("showResult", () => {
       console.log("setting gameState to outcomes");
+      this.setState({ gameState: "outcomes" });
 
       if (this.state.currentQuestion < this.props.state.gameObj.questions.length - 1) {
-        this.countdown(10, "QandA");
-        this.setState({ gameState: "outcomes" })
+        this.countdown(15, "QandA");
       }
       else // if we've run out of questions, end the game
-        this.setState({ gameState: "end" })
+        this.countdown(15, "end" )
     })
   }
 

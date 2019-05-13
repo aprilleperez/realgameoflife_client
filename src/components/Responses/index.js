@@ -6,7 +6,7 @@ class Responses extends React.Component {
   state = {
     choiceMade: false,
     choice: undefined,
-    timer: 15,
+    timer: 20,
   }
 
   componentDidMount() {
