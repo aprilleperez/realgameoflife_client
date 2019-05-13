@@ -92,7 +92,7 @@ class Responses extends React.Component {
     return (
       <div>
         <div>{ansArr}</div>
-        <div>Timer: {this.state.timer}</div>
+        <div><h2>mer: {this.state.timer}</h2></div>
       </div>
     )
   }

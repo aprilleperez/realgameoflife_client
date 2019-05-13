@@ -11,7 +11,9 @@ class Game extends React.Component {
     allowTimer: true,
     timer: 10,
     avatar: undefined,
-    choice: undefined
+    choice: undefined,
+    startingTraits: undefined,
+    currentStats: undefined
   }
 
   componentDidMount() {
@@ -39,7 +41,7 @@ class Game extends React.Component {
         this.countdown(15, "QandA");
       }
       else // if we've run out of questions, end the game
-        this.countdown(15, "end" )
+        this.countdown(15, "end")
     })
   }
 
@@ -76,6 +78,10 @@ class Game extends React.Component {
   choiceCB = (num) => {
     this.setState({ choice: num })
     console.log(`setting choice ${num} in Game component`)
+  }
+
+  updateStats = (stats) => {
+
   }
 
   render() {
@@ -137,9 +143,12 @@ class Game extends React.Component {
             else {
               // Avatar intro view
               let traits = [];
+              let stats = [];
               for (let i = 1; i < 6; i++) {
+                stats.push(this.state.avatar["trait" + i]);
                 traits.push(<div>{gameObj.traits["trait" + i] + ": " + this.state.avatar["trait" + i]}</div>)
               }
+              this.setState({ startingTraits: traits, currentStats: stats })
               return (
                 <React.Fragment>
                   <h1>
@@ -158,11 +167,20 @@ class Game extends React.Component {
 
           case "outcomes":
             return (
-              <Outcomes choice={this.state.choice} gameObj={gameObj} avatar={this.state.avatar} qNum={this.state.currentQuestion} />
+              <Outcomes choice={this.state.choice} gameObj={gameObj} avatar={this.state.avatar} qNum={this.state.currentQuestion} statsCB={this.updateStats}/>
             )
 
           case "end":
-            return (<div><h1>What a wild ride!</h1></div>)
+            return (
+              <React.Fragment>
+                <h1>What a wild ride!</h1>
+                <h1>
+                  <div>{this.state.avatar.name}</div>
+                  <div>{this.state.startingTraits}</div>
+                  <div>{this.state.stats}</div>
+                </h1>
+              </React.Fragment>
+            )
 
         }
       }
