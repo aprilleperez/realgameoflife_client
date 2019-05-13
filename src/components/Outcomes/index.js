@@ -7,6 +7,11 @@ function Outcomes(props) {
   let qNum = props.qNum;
   let choice = props.choice;
   let outcome = gameObj.questions[qNum].responses[choice].outcomes;
+ 
+  let trait1 = gameObj.questions[qNum].trait1;
+  let trait2 = gameObj.questions[qNum].trait2;
+
+  console.log(gameObj)
 
   return (
     <div className="container">
