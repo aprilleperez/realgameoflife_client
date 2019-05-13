@@ -1,6 +1,7 @@
 import React from "react";
 import { withRouter } from 'react-router-dom'
 import "./Responses.css"
+import "../Game/game.css"
 
 class Responses extends React.Component {
   state = {
@@ -90,8 +91,9 @@ class Responses extends React.Component {
 
 
     return (
-      <div>
+      <div className="centerDivs">
         <div>{ansArr}</div>
+        <br></br>
         <div>Timer: {this.state.timer}</div>
       </div>
     )

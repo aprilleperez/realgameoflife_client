@@ -11,8 +11,7 @@
 } */
 
 .appNav {
-  /* background-color: rgba(255, 255, 255, 0.75); */
-  background: rgb(246,225,161);
-  background: linear-gradient(350deg, rgba(246,225,161,.8) 0%, rgba(175,217,234,.8) 75%);
+  background: rgba(175, 217, 234, 0.75);
+  color: #707070;
   font-family: 'Muli', sans-serif;
 }
