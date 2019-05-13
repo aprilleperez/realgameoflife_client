@@ -188,7 +188,7 @@ class NewModal extends React.Component {
                   </Form.Group>
               </Row>
           </Form.Row>
-          <Button onClick={this.registerUser} variant="primary" type="submit">
+          <Button className="modalButton" onClick={this.registerUser} variant="primary" type="submit">
           Register
           </Button>
           </Form>
@@ -199,10 +199,10 @@ class NewModal extends React.Component {
       </Accordion>
           </Modal.Body>
           <Modal.Footer>
-           <Button variant="secondary" onClick={this.handleClose}>
+           {/* <Button variant="secondary" onClick={this.handleClose}>
               Close
-            </Button>              
-            <Button onClick={this.logInUser} variant="primary" type="submit" data-dismisss='modal'> 
+            </Button>               */}
+            <Button className="modalButton" onClick={this.logInUser} variant="primary" type="submit" data-dismisss='modal'> 
               Submit 
             </Button>
           </Modal.Footer>
