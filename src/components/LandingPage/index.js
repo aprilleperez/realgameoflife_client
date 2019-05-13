@@ -3,6 +3,7 @@ import Button from "../Button"
 import Nav from "../Nav"
 import InputField from "../InputField"
 import { Link, withRouter } from 'react-router-dom'
+import { Container, Row, Col } from '../Grid'
 
 import "./landingPage.css"
 
@@ -31,21 +32,65 @@ const LandingPage = (props) => {
   }
 
   return (
+    // <div>
+    //   <Nav loggedIn={props.state.loggedIn} userName={props.state.userName} />
+    //   <div className="jumbotron m-5 fluid">
+    //     <div className="row fluid">
+    //       {/* onClick={launchDefaultGame} */}
+    //       <div className="col-sm-6" onClick={launchDefaultGame}>
+    //         <Button text="Launch Default Game" />
+    //       </div>
+
+    //       <div className="col-sm-6">
+    //         <Link to='https://aprilleperez.github.io/realgameoflife_admin/' className="ml-3"><Button text="Create/Edit Games" /></Link>
+    //       </div>
+    //       {/* <a href='https://aprilleperez.github.io/realgameoflife_admin/' className="ml-3"><Button text="Create/Edit Games" /></a> */}
+    //     </div>
+
+    //     <div className="row mt-5 fluid">
+    //       <h1 className="ml-3 align-bottom">Enter Game Code:</h1>
+
+    //     </div>
+    //     <InputField updateState={props.updateState} />
+    //   </div>
+    // </div >
     <div>
       <Nav loggedIn={props.state.loggedIn} userName={props.state.userName} />
-      <div className="jumbotron m-5">
-        <div className="row" onClick={launchDefaultGame}>
-          <Button text="Launch a Game" />
+      <Container>
+        <Row>
+          <Col size="sm-12">
+            <h1 className="text-center">Real Game of Life</h1>
+          </Col>
+        </Row>
 
-          <a href='https://aprilleperez.github.io/realgameoflife_admin/' className="ml-3"><Button text="Create/Edit Games" /></a>
-        </div>
-        <div className="row mt-5">
-          <h1 className="ml-3 align-bottom">Enter Game Code:</h1>
+        <Row>
+          <Col size="sm-12">
+            <h3 className="text-center">Navigate through life's real issues!</h3>
+          </Col>
+        </Row>
 
-        </div>
-        <InputField updateState={props.updateState} />
-      </div>
+        <Row>
+          <Col size="sm-6">
+            <Button text="Launch Default Game" onClick={launchDefaultGame} />
+          </Col>
+
+          <Col size="sm-6">
+            <a href='https://aprilleperez.github.io/realgameoflife_admin/'><Button text="Create/Edit Games" /></a>
+          </Col>
+        </Row>
+
+        <Row>
+          <h3 className="text-center">Enter Game Code:</h3>
+        </Row>
+
+        <Row>
+          <InputField updateState={props.updateState} />
+        </Row>
+
+      </Container>
+
     </div>
+
   )
 }
 

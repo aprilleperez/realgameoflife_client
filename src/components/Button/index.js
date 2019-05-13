@@ -3,13 +3,16 @@ import "./button.css";
 
 
 function Button(props) {
-
-  // let className = "button " + props.buttonType;
-
   return (
-      <button className="appButton" to={props.to} value={props.value}>{props.text}</button> 
-      // className={className}
+    <div className="appBtnCtn">
+      <button className="appButton" to={props.to} value={props.value} onClick={props.onClick}>{props.text}</button>
+    </div>
   )
 }
 
 export default Button;
+
+
+
+// let className = "button " + props.buttonType;
+// className={className}
