@@ -188,10 +188,8 @@ class NewModal extends React.Component {
                   </Form.Group>
               </Row>
           </Form.Row>
-          <Button onClick={this.registerUser} variant="primary" type="submit">
-          <Button onClick={this.handleClose}>
+          <Button onClick={this.registerUser} onClick={this.handleClose} variant="primary" type="submit">
           Register 
-          </Button>
           </Button>
           </Form>
               </Card.Body>
@@ -206,7 +204,6 @@ class NewModal extends React.Component {
             </Button>              
             <Button onClick={this.logInUser} onClick={this.handleClose} variant="primary" type="submit">
               Submit 
-              {/* create a redirect link to admin page */}
             </Button>
           </Modal.Footer>
         </Modal>
