@@ -36,16 +36,15 @@ const LandingPage = (props) => {
       <div className="jumbotron m-5">
         <div className="row" onClick={launchDefaultGame}>
           <Button text="Launch a Game" buttonType="green" />
-
-          <a href='https://aprilleperez.github.io/realgameoflife_admin/' className="ml-3"><Button text="Create/Edit Games" buttonType="green" /></a>
+          <a href='https://aprilleperez.github.io/realgameoflife_admin/' className="ml-3"><Button buttonType="green" text="Create/Edit Games"></Button></a>
         </div>
         <div className="row mt-5">
           <h1 className="ml-3 align-bottom">Enter Game Code:</h1>
-
         </div>
         <InputField updateState={props.updateState} />
       </div>
     </div>
+
   )
 }
 

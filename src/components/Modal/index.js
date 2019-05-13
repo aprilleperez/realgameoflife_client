@@ -37,7 +37,13 @@ class NewModal extends React.Component {
   };
 
  
+  handleClose() {
+    this.setState({ show: false });
+  }
 
+  handleShow() {
+    this.setState({ show: true });
+  }
 
   registerUser = (event) => {
     event.preventDefault();
@@ -60,7 +66,9 @@ class NewModal extends React.Component {
       })
       .catch(err => {
         console.log(err);
+        alert('Invalid Password!')
       })
+      this.handleClose()
   }
 
   logInUser = (event) => {
@@ -74,9 +82,7 @@ class NewModal extends React.Component {
 
     localStorage.setItem("email", email);
     localStorage.setItem("password", password);
-    
-    console.log(localStorage.setItem("email", email));
-  
+     
     axios.post('https://real-life-api.herokuapp.com/api/admin/login', loggedUser)
       .then(res => {
         console.log("YOU'RE LOGGED IN!")
@@ -88,21 +94,15 @@ class NewModal extends React.Component {
             loggedIn: true,
             user:res.data.user
           })
-        }
+        }  
       })
       .catch(err => {
         console.log("I'M BROKEN! FIX ME!")
         console.log(err);
       })
+        this.handleClose()      
   }
-
-  handleClose() {
-    this.setState({ show: false });
-  }
-
-  handleShow() {
-    this.setState({ show: true });
-  }
+  
   
   LoggedOutUser = (event) => {
     event.preventDefault()
@@ -118,7 +118,6 @@ class NewModal extends React.Component {
     })
   }
 
-  
   render() {
     let login = "Login";
     if (this.state.loggedIn) login = "Welcome back!";
@@ -188,8 +187,8 @@ class NewModal extends React.Component {
                   </Form.Group>
               </Row>
           </Form.Row>
-          <Button onClick={this.registerUser} onClick={this.handleClose} variant="primary" type="submit">
-          Register 
+          <Button onClick={this.registerUser} variant="primary" type="submit">
+          Register
           </Button>
           </Form>
               </Card.Body>
@@ -202,7 +201,7 @@ class NewModal extends React.Component {
             <Button variant="secondary" onClick={this.handleClose}>
               Close
             </Button>              
-            <Button onClick={this.logInUser} onClick={this.handleClose} variant="primary" type="submit">
+            <Button onClick={this.logInUser} variant="primary" type="submit" data-dismisss='modal'> 
               Submit 
             </Button>
           </Modal.Footer>
