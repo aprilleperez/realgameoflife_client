@@ -1,4 +1,5 @@
 import React from "react";
+import "./outcomes.css";
 
 function Outcomes(props) {
 
@@ -21,12 +22,15 @@ function Outcomes(props) {
   return (
     <React.Fragment>
       <br></br>
-      <h1>
-        Here's what happened:
-      <div>{outcome[0].text}</div>
-        <div>{outcome[0].trait}: {score1}</div>
-        <div>{outcome[1].trait}: {score2}</div>
-      </h1>
+      <div className="centerDivs">
+        <h1>
+          Here's what happened:
+          <div>{outcome[0].text}</div>
+          <br></br>
+          <div>{outcome[0].trait}: {score1}</div>
+          <div>{outcome[1].trait}: {score2}</div>
+        </h1>
+      </div>
     </React.Fragment>
   )
 }

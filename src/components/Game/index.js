@@ -1,6 +1,7 @@
 import React from 'react'
 import Responses from "../Responses"
 import Outcomes from "../Outcomes"
+import "./game.css"
 // import { Redirect } from "react-router-dom"
 
 class Game extends React.Component {
@@ -105,9 +106,10 @@ class Game extends React.Component {
 
           case "intro":
             return (
-              <div>
+              <div className="centerDivs">
                 <h1>
                   <div>{gameObj.name}</div>
+                  <br></br>
                   <div>Game starts in: {this.state.timer} seconds</div>
                 </h1>
               </div>
@@ -115,21 +117,32 @@ class Game extends React.Component {
 
           case "QandA":
             return (
-              <div><h1>Question: {gameObj.questions[this.state.currentQuestion].Q}</h1></div>
+              <div className="centerDivs hostQuestions">
+                <h1 className="text-center">Question
+                  <br></br>
+                  {gameObj.questions[this.state.currentQuestion].Q}</h1>
+              </div>
             )
 
           case "outcomes":
             return (
-              <div className="container">
+              <div className="container centerDivs">
                 <h1>
                   <div>Well, let's see what that did...</div>
+                  <br></br>
                   <div>Next question in {this.state.timer}</div>
                 </h1>
               </div>
             )
 
           case "end":
-            return (<div><h1>Let's see how you did!</h1></div>)
+            return (
+              <div className="centerDivs">
+                <h1>Let's see how you did!</h1>
+                <br></br>
+                <a href="https://aprilleperez.github.io/realgameoflife_client/">Back to Site</a>
+              </div>
+            )
         }
       }
       // **************************************
@@ -140,7 +153,7 @@ class Game extends React.Component {
 
           case "intro":
             // if we're still waiting for the avatar to load
-            if (!this.state.avatar) return (<div>avatar loading</div>)
+            if (!this.state.avatar) return (<div className="centerDivs">avatar loading</div>)
             else {
               // Avatar intro view
               let traits = [];
@@ -153,10 +166,12 @@ class Game extends React.Component {
                 this.setState({ startingTraits: traits, currentStats: stats })
               return (
                 <React.Fragment>
-                  <h1>
-                    <div>{this.state.avatar.name}</div>
-                    <div>{traits}</div>
-                  </h1>
+                  <div className="centerDivs">
+                    <h1>
+                      <div>{this.state.avatar.name}</div>
+                      <div>{traits}</div>
+                    </h1>
+                  </div>
                 </React.Fragment>
               )
             }
@@ -173,17 +188,15 @@ class Game extends React.Component {
             )
 
           case "end":
-            return (
-              <React.Fragment>
-                <h1>What a wild ride!</h1>
-                <h1>
-                  <div>{this.state.avatar.name}</div>
-                  <div>{this.state.startingTraits}</div>
-                  <div>{this.state.stats}</div>
-                </h1>
-              </React.Fragment>
-            )
 
+            return (<div className="centerDivs">
+              <h1>What a wild ride!</h1>
+              <br></br>
+              <h1>{this.state.avatar.name}</h1>
+              <h1>{this.state.startingTraits}</h1>
+              <h1>{this.state.stats}</h1>
+              <a href="https://aprilleperez.github.io/realgameoflife_client/">Back to Site</a>
+            </div>)
         }
       }
     }
@@ -192,8 +205,8 @@ class Game extends React.Component {
 
     // default view
     return (
-      <div>
-        LOADING GAME ^_^
+      <div className="centerDivs">
+        <h1>LOADING GAME 	(´｡• ᵕ •｡`)</h1>
       </div>
     )
   }

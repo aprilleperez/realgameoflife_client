@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Switch, Redirect } from 'react-router-dom'
+// import Nav from "../Nav"
 import LandingPage from '../LandingPage'
 import Lobby from "../Lobby"
 import Game from "../Game"
@@ -31,6 +32,7 @@ class PrimaryLayout extends React.Component {
 
     return (
       <div>
+        {/* <Nav /> */}
         <Switch>
           <Route path="/game" render={game} />
 

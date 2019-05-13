@@ -2,7 +2,8 @@ import React from "react";
 import Nav from "../Nav"
 import Button from "../Button"
 import { Redirect, Link, withRouter } from "react-router-dom"
-import { Container } from "react-bootstrap"
+// import { Container } from "react-bootstrap"
+import { Container, Row, Col } from '../Grid'
 import "./lobby.css"
 import axios from 'axios';
 
@@ -72,12 +73,54 @@ class Lobby extends React.Component {
       this.state.host ?
         topMessage =
         <React.Fragment>
-          <div>To join go to</div>
+          <div className="hostLobby">
+            <Container>
+              <Row>
+                <Col size="sm-6">
+                  <Row>
+                    <Col size="sm-12">
+                      <h5 className="text-center lobbyH5">To join go to:</h5>
+                    </Col>
+                  </Row>
+
+                  <Row>
+                    <Col size="sm-12">
+                      <div className="linksToShare">
+                        <h5 className="text-center">https://bit.ly/2JiJkmy</h5>
+                      </div>
+                    </Col>
+                  </Row>
+                </Col>
+
+                <Col size="sm-6">
+                  <Row>
+                    <Col size="sm-12">
+                      <h5 className="text-center lobbyH5">and enter code:</h5>
+                    </Col>
+                  </Row>
+
+                  <Row>
+                    <Col size="sm-12">
+                      <div className="linksToShare">
+                        <h5 className="text-center">{this.props.state.gameCode}</h5>
+                      </div>
+                    </Col>
+                  </Row>
+
+                </Col>
+              </Row>
+
+            </Container>
+          </div>
+          {/* <div>To join go to</div>
           <div><h1>https://bit.ly/2JiJkmy</h1></div>
           <div>and enter code:</div>
-          <div><h1>{this.props.state.gameCode}</h1></div>
+          <div><h1>{this.props.state.gameCode}</h1></div> */}
         </React.Fragment>
-        : topMessage = "Waiting for game to start"
+        : topMessage =
+        <div className="playerLobby">
+          Waiting for game to start
+        </div>
 
       // construct players ready string and icons
       let playerCountMessage = "";
