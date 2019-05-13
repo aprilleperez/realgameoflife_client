@@ -15,3 +15,8 @@ input {
   border-bottom-style: none;
   border-left-style: none
 }
+
+.landingIns {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}

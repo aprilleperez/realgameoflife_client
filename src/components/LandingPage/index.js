@@ -65,7 +65,13 @@ const LandingPage = (props) => {
 
         <Row>
           <Col size="sm-12">
-            <h3 className="text-center">Navigate through life's real issues!</h3>
+            <h3 className="text-center">Navigate through life's <em>real</em> issues!</h3>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col size="sm-12">
+            <h5 className="text-center landingIns">For Game Hosts: Start by either launching our default game, or by creating or editing a custom game (must be logged in as an admin for this).</h5>
           </Col>
         </Row>
 
@@ -80,7 +86,13 @@ const LandingPage = (props) => {
         </Row>
 
         <Row>
-          <h3 className="text-center">Enter Game Code:</h3>
+          <Col size="sm-12">
+            <h5 className="text-center landingIns">For Game Players: Enter a game code provided to you by the host.</h5>
+          </Col>
+        </Row>
+
+        <Row>
+          <h5 className="text-center">Enter Game Code:</h5>
         </Row>
 
         <Row>
