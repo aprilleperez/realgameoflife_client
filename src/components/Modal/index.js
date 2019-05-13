@@ -141,7 +141,7 @@ class NewModal extends React.Component {
               </Form.Group>
               <Form.Group controlId="formGroupPassword">
                   <Form.Label>Password</Form.Label>
-                  <Form.Control type="String"  onChange={this.handleInputChange} name="password" placeholder="Password" />
+                  <Form.Control type="password"  onChange={this.handleInputChange} name="password" placeholder="Password" />
               </Form.Group>
               <h6><i>Want to create a game? Be an admin and register down below!</i></h6>
           </Form>
