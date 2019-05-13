@@ -1,4 +1,4 @@
-.nav-bar{
+/* .nav-bar{
   background-color: rgb(145, 143, 143)
 }
 
@@ -8,9 +8,11 @@
   color: white;
   font-size: 30px;
   margin-left: 5px
-}
+} */
 
 .appNav {
-  background-color: rgba(255, 255, 255, 0.75);
+  /* background-color: rgba(255, 255, 255, 0.75); */
+  background: rgb(246,225,161);
+  background: linear-gradient(350deg, rgba(246,225,161,.8) 0%, rgba(175,217,234,.8) 75%);
   font-family: 'Muli', sans-serif;
 }

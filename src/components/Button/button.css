@@ -1,44 +1,21 @@
-.green {
-  background-color: #4CAF50;
+.appBtnCtn {
+  display: flex;
+  justify-content: center;
+}
+
+.appButton {
+  width: 392px;
+  margin: 16px 32px;
+  padding: 16px 16px;
+  background-color: #F1C5B0;
   border: none;
-  color: white;
-  padding: 15px 25px;
+  color:white;
   text-align: center;
-  font-size: 24px;
+  font-size: 20px;
   cursor: pointer;
-  display: inline-block
+  overflow: auto;
 }
 
-.green:hover {
-  opacity: .6;
+.appButton:hover {
+  opacity: .7;
 }
-
-.blue {
-  background-color: rgb(30, 43, 233);
-  border: none;
-  color: white;
-  padding: 15px 25px;
-  text-align: center;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-.blue:hover {
-  opacity: .6;
-}
-
-.navlink {
-  background-color: rgb(57, 0, 189);
-  border: none;
-  color: white;
-  padding: 15px 25px;
-  text-align: center;
-  font-size: 16px;
-  cursor: pointer;
-  display: inline-block;
-}
-
-.navlink:hover {
-  opacity: .8;
-}
-
