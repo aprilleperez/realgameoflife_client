@@ -1,13 +1,29 @@
 body {
   font-family: 'Muli', sans-serif;
-  /* background: rgb(246,225,161);
-  background: linear-gradient(350deg, rgba(246,225,161,1) 0%, rgba(175,217,234,1) 75%); */
   height: 100vh;
-  color: #444444;
+  color: #707070;
+}
+
+hr {
+  border-color: #fca25d;
 }
 
 .appHero{
+  margin-top: 40px;
+}
+
+.appHeader {
   margin-top: 16px;
+  color: #fca25d;
+  font-weight: 700;
+}
+
+.appSubHeader {
+  margin-bottom: 40px;
+}
+
+.orange {
+  color: #fca25d;
 }
 
 .main {

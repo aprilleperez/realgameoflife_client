@@ -1,0 +1,12 @@
+.modalButton {
+    background-color: transparent;
+    border-color: #fca25d;
+    color: #fca25d;
+    box-shadow: unset;
+}
+
+.modalButton:hover {
+    background-color: #fca25d;
+    border-color: #fca25d;
+    color: white;
+}
