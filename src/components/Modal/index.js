@@ -36,6 +36,9 @@ class NewModal extends React.Component {
     }
   };
 
+ 
+
+
   registerUser = (event) => {
     event.preventDefault();
 
@@ -71,11 +74,15 @@ class NewModal extends React.Component {
 
     localStorage.setItem("email", email);
     localStorage.setItem("password", password);
-
+    
+    console.log(localStorage.setItem("email", email));
+  
     axios.post('https://real-life-api.herokuapp.com/api/admin/login', loggedUser)
       .then(res => {
         console.log("YOU'RE LOGGED IN!")
         console.log(res)
+        localStorage.getItem(email, password);
+        console.log(localStorage.getItem(email, password));
         if(res.status === 200){
           this.setState({
             loggedIn: true,
@@ -100,7 +107,7 @@ class NewModal extends React.Component {
   LoggedOutUser = (event) => {
     event.preventDefault()
     console.log('logging out')
-    axios.post('/auth/logout').then(response => {
+    axios.post('https://real-life-api.herokuapp.com/api/admin/logout').then(response => {
       console.log(response.data)
       if (response.status === 200) {
         this.setState({
@@ -114,8 +121,8 @@ class NewModal extends React.Component {
   
   render() {
     let login = "Login";
-    if (this.state.loggedIn) login = "Logout";  
-    
+    if (this.state.loggedIn) login = "Welcome back!";
+
     return (
       <>
         <Button variant="primary" onClick={this.handleShow}>
@@ -130,11 +137,11 @@ class NewModal extends React.Component {
           <Form>
               <Form.Group controlId="formGroupEmail">
                   <Form.Label>Email address</Form.Label>
-                  <Form.Control type="email" onChange={this.handleInputChange} name="email" placeholder="johndoe@test.com" />
+                  <Form.Control type="String" onChange={this.handleInputChange} name="email" placeholder="johndoe@test.com" />
               </Form.Group>
               <Form.Group controlId="formGroupPassword">
                   <Form.Label>Password</Form.Label>
-                  <Form.Control type="password"  onChange={this.handleInputChange} name="password" placeholder="Password" />
+                  <Form.Control type="String"  onChange={this.handleInputChange} name="password" placeholder="Password" />
               </Form.Group>
               <h6><i>Want to create a game? Be an admin and register down below!</i></h6>
           </Form>
@@ -153,31 +160,31 @@ class NewModal extends React.Component {
               <Row>
                   <Form.Group as={Col} controlId="formGridFirstName">
                   <Form.Label>First Name</Form.Label>
-                  <Form.Control type="firstName" value={this.state.firstName} name = 'firstName' onChange={this.handleInputChange} placeholder="John" />
+                  <Form.Control type="String" value={this.state.firstName} name = 'firstName' onChange={this.handleInputChange} placeholder="John" />
                   </Form.Group>
               </Row>
               <Row>
                   <Form.Group as={Col} controlId="formGridLastName">
                   <Form.Label>Last Name</Form.Label>
-                  <Form.Control type="lastName" value={this.state.lastName} name = 'lastName' onChange={this.handleInputChange} placeholder="Doe" />
+                  <Form.Control type="String" value={this.state.lastName} name = 'lastName' onChange={this.handleInputChange} placeholder="Doe" />
                   </Form.Group>
               </Row>
               <Row>
                   <Form.Group as={Col} controlId="formGridEmail">
                   <Form.Label>Email</Form.Label>
-                  <Form.Control type="email" value={this.state.email} name = 'email' onChange={this.handleInputChange} placeholder="Enter email" />
+                  <Form.Control type="String" value={this.state.email} name = 'email' onChange={this.handleInputChange} placeholder="Enter email" />
                   </Form.Group>
               </Row>
               <Row>
                   <Form.Group as={Col} controlId="formGridPassword">
                   <Form.Label>Password</Form.Label>
-                  <Form.Control type="password" value={this.state.password} name = 'password' onChange={this.handleInputChange} placeholder="Password" />
+                  <Form.Control type="String" value={this.state.password} name = 'password' onChange={this.handleInputChange} placeholder="Password" />
                   </Form.Group>
               </Row>
               <Row>
                   <Form.Group as={Col} controlId="formGridOrg">
                   <Form.Label>Organization Name</Form.Label>
-                  <Form.Control type="orgName" value={this.state.orgName} name = 'orgName' onChange={this.handleInputChange} placeholder="nunyaINC" />
+                  <Form.Control type="String" value={this.state.orgName} name = 'orgName' onChange={this.handleInputChange} placeholder="nunyaINC" />
                   </Form.Group>
               </Row>
           </Form.Row>
@@ -197,11 +204,9 @@ class NewModal extends React.Component {
             <Button variant="secondary" onClick={this.handleClose}>
               Close
             </Button>              
-            <Button onClick={this.logInUser} variant="primary" type="submit">
-            <Button onClick={this.handleClose}>
+            <Button onClick={this.logInUser} onClick={this.handleClose} variant="primary" type="submit">
               Submit 
               {/* create a redirect link to admin page */}
-            </Button>
             </Button>
           </Modal.Footer>
         </Modal>
