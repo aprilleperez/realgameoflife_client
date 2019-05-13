@@ -6,7 +6,11 @@ import "./nav.css"
 class Nav extends React.Component {
 
   state = {
-    name: this.props.userName
+    name: this.props.userName,
+
+    // below is for nav
+    open: false,
+    width: window.innerWidth
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -15,6 +19,32 @@ class Nav extends React.Component {
     }
     else
       return null;
+  }
+
+  updateWidth = () => {
+    // newState is whatever width the browser is at
+    const newState = { width: window.innerWidth };
+
+    // set newState's open key to false if conditions met
+    if (this.state.open && newState.width > 991) {
+      newState.open = false;
+    }
+
+    // setting newState of updated browser's width
+    this.setState(newState);
+  };
+
+  // method for toggling hamburger nav on smaller screens
+  toggleNav = () => {
+    this.setState({ open: !this.state.open });
+  };
+
+  componentDidMount() {
+    window.addEventListener("resize", this.updateWidth);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateWidth);
   }
 
   render() {
@@ -43,17 +73,17 @@ class Nav extends React.Component {
         </button>
         {/* determining if hamburger toggle will open or not */}
         <div className={`${this.state.open ? "" : "collapse "}navbar-collapse`} id="navbarNav">
-          <ul className="navbar-nav">
-            {/* <li className="nav-item">
+          {/* <ul className="navbar-nav">
+            <li className="nav-item">
               <Link
                 onClick={this.toggleNav}
                 className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}
                 to="/"
               >
-                Dashboard
+                About Us
               </Link>
-            </li> */}
-            {/* <li className="nav-item">
+            </li>
+            <li className="nav-item">
               <Link
                 onClick={this.toggleNav}
                 className={window.location.pathname === "/create" || "/create/avatars" || "/create/questions" ? "nav-link active" : "nav-link"}
@@ -61,10 +91,11 @@ class Nav extends React.Component {
               >
                 Create
               </Link>
-            </li> */}
-          </ul>
+            </li>
+          </ul> */}
+          <Modal />
         </div>
-        <Modal />
+        {/* <Modal /> */}
       </nav>
     )
   }

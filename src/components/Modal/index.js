@@ -2,6 +2,7 @@ import React  from 'react';
 import {Button, Modal, Form, Accordion, Card, Col, Row} from 'react-bootstrap';
 import axios from 'axios';
 import API from '../../utils/API';
+import './modal.css'
 
 class NewModal extends React.Component {
   constructor(props, context) {
@@ -124,7 +125,7 @@ class NewModal extends React.Component {
 
     return (
       <>
-        <Button variant="primary" onClick={this.handleShow}>
+        <Button className="modalButton" variant="primary" onClick={this.handleShow}>
           {login}
         </Button>
 
@@ -198,7 +199,7 @@ class NewModal extends React.Component {
       </Accordion>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={this.handleClose}>
+           <Button variant="secondary" onClick={this.handleClose}>
               Close
             </Button>              
             <Button onClick={this.logInUser} variant="primary" type="submit" data-dismisss='modal'> 

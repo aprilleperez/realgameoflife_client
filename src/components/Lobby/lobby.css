@@ -6,3 +6,28 @@
   height: 50px;
   width: 50px
 }
+
+.linksToShare {
+  border-color: #AFD9EA;
+  border-style: solid;
+  border-width: 1px;
+  padding: 16px;
+}
+
+.hostLobby {
+  margin-top: 56px;
+}
+
+.playerLobby {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lobbyH5 {
+  margin-top: 16px;
+  color: #fca25d;
+}
+

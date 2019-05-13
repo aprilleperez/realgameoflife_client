@@ -1,33 +1,30 @@
 .answer {
-  height: 50px;
   padding: 10px;
-  background-color: rgb(0, 105, 119);
+  background-color: #fca25d;
   color: white;
   transition: 70ms;
   margin: 25px;
 }
 
 .invalid {
-  height: 50px;
   padding: 10px;
-  background-color: rgb(85, 85, 85);
+  background-color: rgba(85, 85, 85, 0.75);
   color: white;
   transition: 70ms;
   margin: 25px;
 }
 
 .invalid:active {
-  background-color: rgb(201, 0, 0)
+  background-color: rgba(85, 85, 85, 0.75);
 }
 
 .answer:active {
-  background-color: rgb(14, 39, 78)
+  background-color: #AFD9EA;
 }
 
 .selectedAnswer{
-  height: 50px;
   padding: 10px;
-  background-color: rgb(14, 39, 78);
+  background-color: #AFD9EA;
   color: white;
   transition: 70ms;
   margin: 25px;

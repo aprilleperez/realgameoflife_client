@@ -1,4 +1,5 @@
 import React from "react";
+import "./outcomes.css";
 
 function Outcomes(props) {
 
@@ -7,19 +8,28 @@ function Outcomes(props) {
   let qNum = props.qNum;
   let choice = props.choice;
   let outcome = gameObj.questions[qNum].responses[choice].outcomes;
- 
-  let trait1 = gameObj.questions[qNum].trait1;
-  let trait2 = gameObj.questions[qNum].trait2;
+
+  let score1 = outcome[0].amount;
+  let score2 = outcome[1].amount;
+
+  if (score1 > 0) score1 = `+${score1}`;
+  if (score2 > 0) score2 = `+${score2}`;
 
   console.log(gameObj)
 
   return (
-    <div className="container">
-      <h1>Here's what happened:</h1>
-      <div>{outcome[0].text}</div>
-      <div>{outcome[0].trait}: {outcome[0].upDown}</div>
-      <div>{outcome[1].trait}: {outcome[1].upDown}</div>
-    </div>
+    <React.Fragment>
+      <br></br>
+      <div className="centerDivs">
+        <h1>
+          Here's what happened:
+          <div>{outcome[0].text}</div>
+          <br></br>
+          <div>{outcome[0].trait}: {score1}</div>
+          <div>{outcome[1].trait}: {score2}</div>
+        </h1>
+      </div>
+    </React.Fragment>
   )
 }
 
