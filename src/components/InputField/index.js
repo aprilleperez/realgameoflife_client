@@ -15,7 +15,7 @@ class InputField extends React.Component {
   }
 
   handleChange(event) {
-    this.setState({ value: event.target.value }, this.props.updateState({ gameCode: event.target.value })
+    this.setState({ value: event.target.value }, this.props.updateState({ gameCode: event.target.value.toLowerCase() })
     );
   }
 
