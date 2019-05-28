@@ -168,6 +168,7 @@ class Game extends React.Component {
                 <React.Fragment>
                   <div className="centerDivs">
                     <h1>
+                      <img src={this.state.avatar.picture}></img>
                       <div>{this.state.avatar.name}</div>
                       <div>{traits}</div>
                     </h1>
@@ -198,7 +199,7 @@ class Game extends React.Component {
               {/* <h1>{this.state.avatar.name}</h1>
               <h1>{this.state.startingTraits}</h1>
               <h1>{this.state.currentStats}</h1> */}
-              <EndDisplay name={this.state.avatar.name} starting={this.state.startingTraits} final={this.state.currentStats} gameObj={this.props.state.gameObj}/>
+              <EndDisplay avatar={this.state.avatar} starting={this.state.startingTraits} final={this.state.currentStats} gameObj={this.props.state.gameObj} />
               <a href="https://aprilleperez.github.io/realgameoflife_client/">Back to Site</a>
             </div>)
         }
