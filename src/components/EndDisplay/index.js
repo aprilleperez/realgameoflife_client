@@ -15,7 +15,13 @@ class EndDisplay extends React.Component {
 
   render() {
     if (this.state.output)
-      return this.state.output;
+      return (
+        <React.Fragment>
+          <img src={this.props.avatar.picture}></img>
+          <p>{this.props.avatar.name}</p>
+          {this.state.output}
+        </React.Fragment>
+      )
     else
       return "...";
   }
