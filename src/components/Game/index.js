@@ -168,8 +168,8 @@ class Game extends React.Component {
                 <React.Fragment>
                   <div className="centerDivs">
                     <h1>
-                      <div>{this.state.avatar.name}</div>
-                      <div>{traits}</div>
+                      <div className="displayName">{this.state.avatar.name}</div>
+                      <div className="displayTraits">{traits}</div>
                     </h1>
                   </div>
                 </React.Fragment>

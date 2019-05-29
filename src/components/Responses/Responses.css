@@ -4,6 +4,7 @@
   color: white;
   transition: 70ms;
   margin: 25px;
+  cursor: pointer;
 }
 
 .invalid {
@@ -12,10 +13,12 @@
   color: white;
   transition: 70ms;
   margin: 25px;
+  cursor: not-allowed;
 }
 
 .invalid:active {
-  background-color: rgba(85, 85, 85, 0.75);
+  /* background-color: rgba(85, 85, 85, 0.75); */
+  color: red;
 }
 
 .answer:active {

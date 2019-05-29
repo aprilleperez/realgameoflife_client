@@ -9,3 +9,22 @@
 .hostQuestions {
     padding: 24px;
 }
+
+.displayName {
+    border-color: #707070;
+    border-style: solid;
+    border-width: 1px;
+    padding: 8px;
+    margin: 8px;
+    color: #fca25d;
+    font-weight: 700;
+}
+
+.displayTraits {
+    border-color: #707070;
+    border-style: solid;
+    border-width: 1px;
+    padding: 8px;
+    margin: 8px;
+    color: #fca25d;
+}
