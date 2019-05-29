@@ -1,6 +1,7 @@
 import React from 'react'
 import Responses from "../Responses"
 import Outcomes from "../Outcomes"
+import EndDisplay from "../EndDisplay"
 import "./game.css"
 // import { Redirect } from "react-router-dom"
 
@@ -82,8 +83,7 @@ class Game extends React.Component {
   }
 
   updateStats = (stats) => {
-    // MAKE THIS UPDATE CURRENTSTATS
-    return null
+    this.setState({ currentStats: stats }, console.log(this.state.currentStats))
   }
 
   render() {
@@ -163,11 +163,12 @@ class Game extends React.Component {
                 traits.push(<div>{gameObj.traits["trait" + i] + ": " + this.state.avatar["trait" + i]}</div>)
               }
               if (!this.state.startingTraits)
-                this.setState({ startingTraits: traits, currentStats: stats })
+                this.setState({ startingTraits: [...stats], currentStats: stats })
               return (
                 <React.Fragment>
                   <div className="centerDivs">
                     <h1>
+                      <img src={this.state.avatar.picture}></img>
                       <div className="displayName">{this.state.avatar.name}</div>
                       <div className="displayTraits">{traits}</div>
                     </h1>
@@ -179,22 +180,26 @@ class Game extends React.Component {
           case "QandA":
             return (
               // show responses for current question
-              <Responses choiceCB={this.choiceCB} timer={this.state.timer} question={gameObj.questions[this.state.currentQuestion]} answers={gameObj.questions[this.state.currentQuestion].responses} socket={this.props.socket} gameCode={this.props.state.gameCode} traits={gameObj.traits} avatar={this.state.avatar} />
+              <Responses choiceCB={this.choiceCB} timer={this.state.timer} question={gameObj.questions[this.state.currentQuestion]} answers={gameObj.questions[this.state.currentQuestion].responses} socket={this.props.socket} gameCode={this.props.state.gameCode} traits={gameObj.traits} currentStats={this.state.currentStats} />
             )
 
           case "outcomes":
             return (
-              <Outcomes choice={this.state.choice} gameObj={gameObj} avatar={this.state.avatar} qNum={this.state.currentQuestion} statsCB={this.updateStats} />
+              <Outcomes choice={this.state.choice} gameObj={gameObj} avatar={this.state.avatar} qNum={this.state.currentQuestion} currentStats={this.state.currentStats} statsCB={this.updateStats} />
             )
 
           case "end":
-
+            let endStats = [];
+            for (let i = 0; i < 5; i++) {
+              endStats.push(<div>{gameObj.traits["trait" + i] + ": " + this.state.avatar["trait" + i]}</div>)
+            }
             return (<div className="centerDivs">
               <h1>What a wild ride!</h1>
               <br></br>
-              <h1>{this.state.avatar.name}</h1>
+              {/* <h1>{this.state.avatar.name}</h1>
               <h1>{this.state.startingTraits}</h1>
-              <h1>{this.state.stats}</h1>
+              <h1>{this.state.currentStats}</h1> */}
+              <EndDisplay avatar={this.state.avatar} starting={this.state.startingTraits} final={this.state.currentStats} gameObj={this.props.state.gameObj} />
               <a href="https://aprilleperez.github.io/realgameoflife_client/">Back to Site</a>
             </div>)
         }
