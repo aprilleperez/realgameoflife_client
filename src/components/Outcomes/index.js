@@ -29,8 +29,8 @@ class Outcomes extends React.Component {
 
     let question = gameObj.questions[qNum];
     let traitList = gameObj.traits;
-    let tName1 = outcomes[0].trait;
-    let tName2 = outcomes[1].trait;
+    let tName1 = outcome[0].trait;
+    let tName2 = outcome[1].trait;
 
     let stats = this.props.currentStats;
 
