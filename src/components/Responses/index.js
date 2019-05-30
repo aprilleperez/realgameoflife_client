@@ -69,7 +69,7 @@ class Responses extends React.Component {
     this.props.answers.forEach((elem, i) => {
       // console.log(this.state.score1, this.state.score2)
       //use this next line to adjust overall difficulty
-      if (this.state.score1 + this.state.score2 > ((i + 1) * 6 - 4)) {
+      if (this.state.score1 + this.state.score2 > ((i + 1) * 8 - 4) || (i === 0)) {
         ansArr.push(
           <div className="answer" id={i} key={i} onClick={() => { this.madeChoice(i) }}>
             <p>{elem.response}</p>
