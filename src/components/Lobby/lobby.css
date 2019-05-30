@@ -7,6 +7,11 @@
   width: 50px
 }
 
+.lobbyHeader {
+  text-align: center;
+  color: #fca25d;
+}
+
 .linksToShare {
   border-color: #AFD9EA;
   border-style: solid;
@@ -18,16 +23,31 @@
   margin-top: 56px;
 }
 
+.lobbyH5 {
+  margin-top: 16px;
+  color: #fca25d;
+}
+
 .playerLobby {
   height: 100vh;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  font-size: 48px;
+  color: #fca25d;
+	background-image: -webkit-linear-gradient(92deg, #fca25d, #AFD9EA);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-webkit-animation: hue 10s infinite linear;
 }
 
-.lobbyH5 {
-  margin-top: 16px;
-  color: #fca25d;
+@-webkit-keyframes hue {
+  from {
+    -webkit-filter: hue-rotate(0deg);
+  }
+  to {
+    -webkit-filter: hue-rotate(-360deg);
+  }
 }
 

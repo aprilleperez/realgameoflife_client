@@ -76,6 +76,11 @@ class Lobby extends React.Component {
           <div className="hostLobby">
             <Container>
               <Row>
+                <Col size="sm-12">
+                  <h1 className="lobbyHeader text-center">Game Lobby</h1>
+                </Col>
+              </Row>
+              <Row>
                 <Col size="sm-6">
                   <Row>
                     <Col size="sm-12">

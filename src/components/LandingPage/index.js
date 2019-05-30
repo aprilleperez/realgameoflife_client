@@ -38,7 +38,7 @@ const LandingPage = (props) => {
         <Row>
           <Col size="sm-12">
             <div className="appHero">
-              <h1 className="text-center appHeader">Real Game of Life</h1>
+              <h1 className="text-center appHeader">In Their Shoes</h1>
             </div>
 
           </Col>
@@ -46,7 +46,7 @@ const LandingPage = (props) => {
 
         <Row>
           <Col size="sm-12">
-            <h4 className="text-center appSubHeader orange">Navigate through life's <em>real</em> issues!</h4>
+            <h4 className="text-center appSubHeader orange">A game platform meant to <em><strong>begin dialogue</strong></em> on your organization's client base and for experiencing life through <em><strong>their</strong></em> shoes.</h4>
           </Col>
         </Row>
 
