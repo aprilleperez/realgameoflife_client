@@ -91,7 +91,7 @@ class Lobby extends React.Component {
                   <Row>
                     <Col size="sm-12">
                       <div className="linksToShare">
-                        <h5 className="text-center">https://bit.ly/2JiJkmy</h5>
+                        <h5 className="text-center">cutit.org/Intheirshoes</h5>
                       </div>
                     </Col>
                   </Row>
