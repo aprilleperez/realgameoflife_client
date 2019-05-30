@@ -69,7 +69,7 @@ class Outcomes extends React.Component {
       )
     }
     else
-      return <div>LOADINK</div>
+      return <div>LOADING...</div>
   }
 }
 

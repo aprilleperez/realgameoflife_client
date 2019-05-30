@@ -110,10 +110,10 @@ class Game extends React.Component {
                 <h1>
                   <div className="gameName">
                     <h4>Game Name:</h4>
-                    <h2 className="boldFont orange">{gameObj.name}</h2>
+                    <h1 className="boldFont orange">{gameObj.name}</h1>
                   </div>
                   <br></br>
-                  <div className="startTimer">Game starts in: <span className="redTimer">{this.state.timer}</span> seconds</div>
+                  <div className="startTimer"><h2>Game starts in: <span className="redTimer">{this.state.timer}</span> seconds</h2></div>
                 </h1>
               </div>
             )
@@ -121,10 +121,9 @@ class Game extends React.Component {
           case "QandA":
             return (
               <div className="centerDivs hostQuestions">
-                <h1 className="text-center">Question {this.state.currentQuestion + 1}:
+                <h4 className="text-center">Question {this.state.currentQuestion + 1}:</h4>
                   <br></br>
-                  <br></br>
-                  <span className="orange">{gameObj.questions[this.state.currentQuestion].Q}</span></h1>
+                  <h1 className="orange">{gameObj.questions[this.state.currentQuestion].Q}</h1>
                 <br></br>
                 <br></br>
                 <h5>(Please select a choice on your device)</h5>
@@ -133,11 +132,14 @@ class Game extends React.Component {
 
           case "outcomes":
             return (
-              <div className="container centerDivs">
+              <div className="centerDivs">
                 <h1>
-                  <div>Well, let's see what that did...</div>
+                  <div>
+                    <h1 className="text-center">Let's see what that did!</h1>
+                    <h5 className="text-center">(Please view the outcome on your device)</h5>
+                    </div>
                   <br></br>
-                  <div>Next question in {this.state.timer}</div>
+                  <div>Next question in <span className="redTimer">{this.state.timer}</span> seconds</div>
                 </h1>
               </div>
             )
@@ -145,7 +147,8 @@ class Game extends React.Component {
           case "end":
             return (
               <div className="centerDivs">
-                <h1>Let's see how you did!</h1>
+                <h1 className="orange">Let's see how you did!</h1>
+                <h5>(Please view results on your device)</h5>
                 <br></br>
                 <a href="https://aprilleperez.github.io/realgameoflife_client/">Back to Site</a>
               </div>
@@ -160,7 +163,7 @@ class Game extends React.Component {
 
           case "intro":
             // if we're still waiting for the avatar to load
-            if (!this.state.avatar) return (<div className="centerDivs">avatar loading...</div>)
+            if (!this.state.avatar) return (<div className="centerDivs">Avatar loading...</div>)
             else {
               // Avatar intro view
               let traits = [];
