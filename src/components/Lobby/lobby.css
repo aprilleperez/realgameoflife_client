@@ -36,18 +36,18 @@
   align-items: center;
   font-size: 48px;
   color: #fca25d;
-	background-image: -webkit-linear-gradient(92deg, #fca25d, #AFD9EA);
+	/* background-image: -webkit-linear-gradient(92deg, #fca25d, #AFD9EA);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
-	-webkit-animation: hue 10s infinite linear;
+	-webkit-animation: hue 10s infinite linear; */
 }
 
-@-webkit-keyframes hue {
+/* @-webkit-keyframes hue {
   from {
     -webkit-filter: hue-rotate(0deg);
   }
   to {
     -webkit-filter: hue-rotate(-360deg);
   }
-}
+} */
 
