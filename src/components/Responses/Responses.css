@@ -33,3 +33,7 @@
   transition: 70ms;
   margin: 25px;
 }
+
+.redTimer {
+  color: rgba(209, 0, 0, 0.75);
+}

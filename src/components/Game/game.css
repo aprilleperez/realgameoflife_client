@@ -6,25 +6,42 @@
     align-items: center;
 }
 
+.gameName, .startTimer {
+    text-align: center;
+}
+
+.orange {
+    color: #fca25d;
+}
+
+.blue {
+    color: #AFD9EA; 
+}
+
+.redTimer {
+    color: rgba(209, 0, 0, 0.75);
+}
+
+
 .hostQuestions {
     padding: 24px;
 }
 
+.avatarImg {
+    background-color: red;
+    margin: auto;
+}
+
 .displayName {
-    border-color: #707070;
-    border-style: solid;
-    border-width: 1px;
-    padding: 8px;
     margin: 8px;
-    color: #fca25d;
+    /* color: #AFD9EA; */
+}
+
+.boldFont {
     font-weight: 700;
 }
 
 .displayTraits {
-    border-color: #707070;
-    border-style: solid;
-    border-width: 1px;
-    padding: 8px;
     margin: 8px;
-    color: #fca25d;
+    /* color: #fca25d; */
 }

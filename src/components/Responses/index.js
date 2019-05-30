@@ -88,9 +88,11 @@ class Responses extends React.Component {
 
     return (
       <div className="centerDivs">
+        <h4>Choices:</h4>
+        <div className="redTimer">Timer: {this.state.timer}</div>
         <div>{ansArr}</div>
-        <br></br>
-        <div>Timer: {this.state.timer}</div>
+        {/* <br></br> */}
+        
       </div>
     )
   }

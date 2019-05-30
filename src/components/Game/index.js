@@ -108,9 +108,12 @@ class Game extends React.Component {
             return (
               <div className="centerDivs">
                 <h1>
-                  <div>{gameObj.name}</div>
+                  <div className="gameName">
+                    <h4>Game Name:</h4>
+                    <h2 className="boldFont orange">{gameObj.name}</h2>
+                  </div>
                   <br></br>
-                  <div>Game starts in: {this.state.timer} seconds</div>
+                  <div className="startTimer">Game starts in: <span className="redTimer">{this.state.timer}</span> seconds</div>
                 </h1>
               </div>
             )
@@ -118,9 +121,13 @@ class Game extends React.Component {
           case "QandA":
             return (
               <div className="centerDivs hostQuestions">
-                <h1 className="text-center">Question
+                <h1 className="text-center">Question {this.state.currentQuestion + 1}:
                   <br></br>
-                  {gameObj.questions[this.state.currentQuestion].Q}</h1>
+                  <br></br>
+                  <span className="orange">{gameObj.questions[this.state.currentQuestion].Q}</span></h1>
+                <br></br>
+                <br></br>
+                <h5>(Please select a choice on your device)</h5>
               </div>
             )
 
@@ -153,7 +160,7 @@ class Game extends React.Component {
 
           case "intro":
             // if we're still waiting for the avatar to load
-            if (!this.state.avatar) return (<div className="centerDivs">avatar loading</div>)
+            if (!this.state.avatar) return (<div className="centerDivs">avatar loading...</div>)
             else {
               // Avatar intro view
               let traits = [];
@@ -168,9 +175,13 @@ class Game extends React.Component {
                 <React.Fragment>
                   <div className="centerDivs">
                     <h1>
-                      <img src={this.state.avatar.picture}></img>
-                      <div className="displayName">{this.state.avatar.name}</div>
-                      <div className="displayTraits">{traits}</div>
+                      <img className="avatarImg" src={this.state.avatar.picture}></img>
+                      <div className="displayName">You are: <span className="boldFont orange">{this.state.avatar.name}</span></div>
+                      <br></br>
+                      <div className="displayTraits">
+                        Starting Stats:
+                        <span className="boldFont blue">{traits}</span>
+                      </div>
                     </h1>
                   </div>
                 </React.Fragment>
@@ -180,7 +191,7 @@ class Game extends React.Component {
           case "QandA":
             return (
               // show responses for current question
-              <Responses choiceCB={this.choiceCB} timer={this.state.timer} question={gameObj.questions[this.state.currentQuestion]} answers={gameObj.questions[this.state.currentQuestion].responses} socket={this.props.socket} gameCode={this.props.state.gameCode} traits={gameObj.traits} currentStats={this.state.currentStats} />
+                <Responses choiceCB={this.choiceCB} timer={this.state.timer} question={gameObj.questions[this.state.currentQuestion]} answers={gameObj.questions[this.state.currentQuestion].responses} socket={this.props.socket} gameCode={this.props.state.gameCode} traits={gameObj.traits} currentStats={this.state.currentStats} />
             )
 
           case "outcomes":
