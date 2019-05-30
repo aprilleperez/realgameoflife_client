@@ -124,7 +124,9 @@ class Lobby extends React.Component {
         </React.Fragment>
         : topMessage =
         <div className="playerLobby">
-          Waiting for game to start
+          <h2>Waiting for game to start</h2>
+          <br></br>
+          <h5><strong>Tip:</strong> Please watch the host's screen for questions, and submit your choice using your device!</h5>
         </div>
 
       // construct players ready string and icons
@@ -141,7 +143,7 @@ class Lobby extends React.Component {
 
         let jumbo = "";
         jumbo =
-          <div className="jumbotron m-5">
+          <div className="jumbotron m-5 playerCount">
             <p>{playerCountMessage}</p>
             <div className="row players">
               {playerIcons}
