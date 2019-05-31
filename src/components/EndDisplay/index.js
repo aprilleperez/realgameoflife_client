@@ -1,4 +1,5 @@
 import React from "react";
+import "../Outcomes/outcomes.css"
 
 class EndDisplay extends React.Component {
   state = {
@@ -18,8 +19,8 @@ class EndDisplay extends React.Component {
       return (
         <React.Fragment>
           <img src={this.props.avatar.picture}></img>
-          <p>{this.props.avatar.name}</p>
-          {this.state.output}
+          <h1 className="text-center orange">{this.props.avatar.name}</h1>
+          <h3 className="text-center blue boldText">{this.state.output}</h3>
         </React.Fragment>
       )
     else

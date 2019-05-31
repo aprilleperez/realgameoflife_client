@@ -57,15 +57,15 @@ class Outcomes extends React.Component {
         <React.Fragment>
           <br></br>
           <div className="centerDivs">
-            <h1>
-              Here's what happened:
-              <div>{this.state.outcome[0].text}</div>
-              <br></br>
-              <div>{this.state.outcome[0].trait}: {this.state.score1}</div>
-              <div>{this.state.outcome[1].trait}: {this.state.score2}</div>
-            </h1>
+            <h2>Here's what happened: </h2>
+            <br></br>
+            <div><h1 className="text-center orange">{this.state.outcome[0].text}</h1></div>
+            <br></br>
+            <div><h1 className="text-center blue boldText">{this.state.outcome[0].trait}: {this.state.score1}</h1></div>
+            <div><h1 className="text-center blue boldText">{this.state.outcome[1].trait}: {this.state.score2}</h1></div>
+
           </div>
-        </React.Fragment>
+        </React.Fragment >
       )
     }
     else

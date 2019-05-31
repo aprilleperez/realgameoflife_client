@@ -202,9 +202,9 @@ class NewModal extends React.Component {
            {/* <Button variant="secondary" onClick={this.handleClose}>
               Close
             </Button>               */}
-            <Button className="modalButton" onClick={this.logInUser} variant="primary" type="submit" data-dismisss='modal'> 
-              Submit 
-            </Button>
+            <a href="https://aprilleperez.github.io/realgameoflife_admin/"><Button className="modalButton" onClick={this.logInUser} variant="primary" type="submit" data-dismisss='modal'> 
+              Submit
+            </Button></a>
           </Modal.Footer>
         </Modal>
       </>        

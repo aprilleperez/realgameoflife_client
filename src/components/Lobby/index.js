@@ -165,6 +165,7 @@ class Lobby extends React.Component {
                 </Link>
               </div>
             </Container>
+            <br></br>
           </div >
         )
       }

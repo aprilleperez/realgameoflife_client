@@ -135,7 +135,7 @@ class Game extends React.Component {
               <div className="centerDivs">
                 <h1>
                   <div>
-                    <h1 className="text-center">Let's see what that did!</h1>
+                    <h1 className="text-center orange">Let's see what that did!</h1>
                     <h5 className="text-center">(Please view the outcome on your device)</h5>
                     </div>
                   <br></br>
@@ -210,10 +210,8 @@ class Game extends React.Component {
             return (<div className="centerDivs">
               <h1>What a wild ride!</h1>
               <br></br>
-              {/* <h1>{this.state.avatar.name}</h1>
-              <h1>{this.state.startingTraits}</h1>
-              <h1>{this.state.currentStats}</h1> */}
               <EndDisplay avatar={this.state.avatar} starting={this.state.startingTraits} final={this.state.currentStats} gameObj={this.props.state.gameObj} />
+              <br></br>
               <a href="https://aprilleperez.github.io/realgameoflife_client/">Back to Site</a>
             </div>)
         }

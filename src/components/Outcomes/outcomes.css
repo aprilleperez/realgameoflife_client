@@ -13,3 +13,7 @@
 .blue {
     color: #AFD9EA; 
 }
+
+.boldText {
+    font-weight: 700;
+}
