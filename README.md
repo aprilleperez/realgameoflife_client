@@ -1,3 +1,4 @@
+
 # [In Their Shoes](https://github.com/aprilleperez/realgameoflife_client)
 
 **In Their Shoes** is a Jackbox style game designed as a training tool for nonprofits to lead discussions on privilege and equity. It's a question and answer style game and hosts can either launch the default game or log in and create their own custom game to play.
