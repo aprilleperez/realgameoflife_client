@@ -25,10 +25,6 @@ class Responses extends React.Component {
       }
     }, 1000)
 
-
-    //move everything to componentdidmount?
-
-    let avatar = this.props.avatar;
     let question = this.props.question;
     let traitList = this.props.traits;
     let tName1 = question.trait1;
@@ -39,16 +35,15 @@ class Responses extends React.Component {
 
     // find out which traits we care about for this questions
     // match trait name to trait number
-    for (let i = 1; i < 6; i++) {
-      console.log(`tName1: ${tName1}, ${traitList["trait" + i]}`)
-      if (tName1 === traitList["trait" + i]) {
-        score1 = avatar["trait" + i];
+    for (let i = 0; i < 5; i++) {
+      if (tName1 === traitList["trait" + (i+1)]) {
+        score1 = this.props.currentStats[i];
         console.log(`${tName1}, which is trait${i}, currently ${score1} points`)
         this.setState({score1: score1})
       }
-      console.log(`tName2: ${tName2}, ${traitList["trait" + i]}`)
-      if (tName2 === traitList["trait" + i]) {
-        score2 = avatar["trait" + i];
+      if (tName2 === traitList["trait" + (i+1)]) {
+        score2 = this.props.currentStats[i];
+        console.log(this.props.currentStats);
         console.log(`${tName2}, which is trait${i}, currently ${score2} points`)
         this.setState({score2: score2})
       }
@@ -72,8 +67,9 @@ class Responses extends React.Component {
 
     // add up the current values of the relevant traits for this question, and disable any responses the player isn't qualified for
     this.props.answers.forEach((elem, i) => {
-      console.log(this.state.score1, this.state.score2)
-      if (this.state.score1 + this.state.score2 > ((i + 1) * 4 - 4)) {
+      // console.log(this.state.score1, this.state.score2)
+      //use this next line to adjust overall difficulty
+      if (this.state.score1 + this.state.score2 > ((i + 1) * 8 - 4) || (i === 0)) {
         ansArr.push(
           <div className="answer" id={i} key={i} onClick={() => { this.madeChoice(i) }}>
             <p>{elem.response}</p>
