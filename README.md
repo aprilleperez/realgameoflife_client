@@ -39,30 +39,30 @@ The game is broken into three sections:
 
 The first thing players see is the lobby where they can wait for the rest of the group to join the game.
 
-![host lobby](/public/images/lobby.PNG)
+![host lobby](https://res.cloudinary.com/instapotty/image/upload/v1571083954/Life%20Game/lobby.png)
 
 ---
 
 Once all your players have joined, you can launch your game! The first thing that happens is each player is randomly assigned an avatar.
 
-![Assigned Avatars](/public/images/allPlayerPhones.PNG)
+![Assigned Avatars](https://res.cloudinary.com/instapotty/image/upload/v1571083966/Life%20Game/allPlayerPhones.png)
 
 As player progress through the game, questions are displayed on the host screen...
 
-![Questions on Host Screen](/public/images/playerQuestion.PNG)
+![Questions on Host Screen](https://res.cloudinary.com/instapotty/image/upload/v1571083965/Life%20Game/playerQuestion.png)
 
 ...and players answer on their devices. Since this game is designed to show how privlege affects the choices people can make throughout their lives, depending on the stats assigned to your avatar, you may not be able to choose from all of the responses to the question. Options that aren't available to you are displayed in gray.
 
-![Player Response Options](/public/images/playerChoices.PNG)
+![Player Response Options](https://res.cloudinary.com/instapotty/image/upload/v1571083965/Life%20Game/playerChoices.png)
 
 Each response has different outcomes. After everyone has answered the question, you can see how your choice affected your stats.
 
-![Question Outcomes](/public/images/playerOutcomes.PNG)
+![Question Outcomes](https://res.cloudinary.com/instapotty/image/upload/v1571083966/Life%20Game/playerOutcomes.png)
 
 ---
 Once you've gone through all the questions in the game, players see how their avatars fared throughout the game (which stats went up, which went down)
 
-![End of Game Screen](/public/images/playerGameEnd.PNG)
+![End of Game Screen](https://res.cloudinary.com/instapotty/image/upload/v1571083966/Life%20Game/playerGameEnd.png)
 
 ---
 
